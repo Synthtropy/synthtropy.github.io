@@ -44,7 +44,6 @@
             position: relative;
             padding: 40px 0;
             margin: 30vh 0;
-            box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.3);
         }
         
         #shader-canvas {
@@ -86,6 +85,7 @@
             font-weight: bold;
             letter-spacing: 2px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 20px;
         }
@@ -173,6 +173,38 @@
         .contact:hover {
             text-decoration: underline;
         }
+        
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 5rem;
+                flex-direction: column;
+                align-items: center;
+                line-height: 1; /* Added tighter line height */
+            }
+            
+            .logo-synth::after {
+                content: "";
+                display: block;
+                height: 0; /* Reduced from 10px to 0 */
+            }
+            
+            /* Add negative margin to bring elements closer */
+            .logo-tropy {
+                margin-top: -10px;
+            }
+        }
+        
+        /* Even smaller screens */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 4rem;
+            }
+            
+            .black-area {
+                padding: 60px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -184,7 +216,7 @@
             <div class="container">
                 <header>
                     <div class="logo">
-                        <span class="logo-synth" data-text="Synth">Synth</span><span class="logo-tropy" data-text="tropy">tropy</span>
+                        <span class="logo-synth" data-text="Synth">synth</span><span class="logo-tropy" data-text="tropy">tropy</span>
                     </div>
                 </header>
             </div>
