@@ -30,6 +30,8 @@
             flex-direction: column;
             justify-content: space-between;
             overflow-x: hidden;
+            position: relative;
+            overflow-y: auto;
         }
         
         .container {
@@ -43,7 +45,9 @@
             background-color: #000000;
             position: relative;
             padding: 40px 0;
-            margin: 30vh 0;
+            margin: 15vh 0;
+            box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.5);
+            min-height: 200px;
         }
         
         #shader-canvas {
@@ -193,6 +197,18 @@
             .logo-tropy {
                 margin-top: -10px;
             }
+
+            .black-area {
+                margin: 10vh 0;
+                padding: 30px 0;
+            }
+            
+            .logo {
+                font-size: 5rem;
+                flex-direction: column;
+                align-items: center;
+                line-height: 1.05; /* Made even tighter */
+            }
         }
         
         /* Even smaller screens */
@@ -203,6 +219,37 @@
             
             .black-area {
                 padding: 60px 0;
+            }
+
+            .black-area {
+                margin: 5vh 0;
+                padding: 40px 0;
+            }
+            
+            .logo {
+                font-size: 3.5rem; /* Smaller font */
+            }
+            
+            footer {
+                position: relative; /* Not fixed on small screens to avoid content overlap */
+                margin-top: 5vh;
+            }
+        }
+
+        /* Specifically for very short screens (landscape mobile) */
+        @media (max-height: 500px) {
+            .black-area {
+                margin: 2vh 0;
+                padding: 20px 0;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            footer {
+                position: relative;
+                padding: 10px 0;
             }
         }
     </style>
@@ -226,7 +273,7 @@
     <footer>
         <div class="container">
             <p class="copyright">
-                &copy; 2025 Synthtropy. All rights reserved. | 
+                &copy; 2025 Synthtropy. All rights reserved. 
                 <a href="mailto:contact@synthtropy.com" class="contact">contact@synthtropy.com</a>
             </p>
         </div>
@@ -301,9 +348,11 @@
             // Resize canvas to match the black area dimensions
             function resizeCanvas() {
                 const blackArea = document.querySelector('.black-area');
-                canvas.width = blackArea.offsetWidth;
-                canvas.height = blackArea.offsetHeight;
-                gl.viewport(0, 0, canvas.width, canvas.height);
+                if (blackArea) {
+                    canvas.width = blackArea.offsetWidth;
+                    canvas.height = blackArea.offsetHeight;
+                    gl.viewport(0, 0, canvas.width, canvas.height);
+                }
             }
             
             window.addEventListener('resize', resizeCanvas);
@@ -383,6 +432,15 @@
             }
             
             render();
+
+            // Add resize observer for more responsive canvas resizing
+            if (window.ResizeObserver) {
+                const blackArea = document.querySelector('.black-area');
+                const resizeObserver = new ResizeObserver(entries => {
+                    resizeCanvas();
+                });
+                if (blackArea) resizeObserver.observe(blackArea);
+            }
         })();
     </script>
 </body>
