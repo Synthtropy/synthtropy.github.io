@@ -1,9 +1,9 @@
 :root {
     /* Color variables for text gradients */
-    --synth-gradient-start: #FFB38A; /* Light peach */
-    --synth-gradient-end: #FF8E5E;   /* Darker peach */
+    --synth-gradient-start: #8aefff; /* Light peach */
+    --synth-gradient-end: #17bac9;   /* Darker peach */
     --tropy-gradient-start: #FF85C2; /* Light pink */
-    --tropy-gradient-end: #FF4B9F;   /* Darker pink */
+    --tropy-gradient-end: #ff0077;   /* Darker pink */
     --text-glow-color: #d640929a;    /* Pink glow */
 }
 
@@ -15,7 +15,12 @@
 }
 
 body {
-    background-color: #121212;
+    background-color: #18001a;
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #f5f5f5;
     line-height: 1.6;
     min-height: 100vh;
