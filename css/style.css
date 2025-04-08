@@ -40,12 +40,13 @@ body {
 
 .black-area {
     width: 100%;
-    background-color: #000000;
+    background-color: rgba(53, 49, 92, 0.1);
     position: relative;
-    padding: 40px 0;
+    padding: 0px 0;
     margin: 15vh 0;
-    box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 40px 10px rgba(1, 0, 0, 0.3);
     min-height: 150px;
+    backdrop-filter: blur(3px);
 }
 
 #shader-canvas {
@@ -120,6 +121,20 @@ header {
     color: transparent;
 }
 
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.logo-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
 .tagline {
     font-size: 1.5rem;
     color: #bbb;
@@ -179,17 +194,13 @@ footer {
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     .logo {
-        font-size: 5rem;
+        font-size: 6rem;
         flex-direction: column;
         align-items: center;
         line-height: 1;
     }
     
-    .logo-synth::after {
-        content: "";
-        display: block;
-        height: 0;
-    }
+
     
     .logo-tropy {
         margin-top: -10px;
@@ -201,10 +212,20 @@ footer {
     }
     
     .logo {
-        font-size: 5rem;
+        font-size: 6rem;
         flex-direction: column;
         align-items: center;
         line-height: 1.05;
+    }
+
+    .logo-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo-image {
+        width: 80px;
+        height: 80px;
     }
 }
 
@@ -216,7 +237,7 @@ footer {
     }
     
     .logo {
-        font-size: 3.5rem;
+        font-size: 4.5rem; /* Increased from 3.5rem */
     }
     
     footer {
@@ -233,7 +254,7 @@ footer {
     }
     
     .logo {
-        font-size: 3rem;
+        font-size: 4rem; /* Increased from 3rem */
     }
     
     footer {
@@ -250,6 +271,8 @@ footer {
         linear-gradient(90deg, rgba(20, 0, 30, 0.2) 1px, transparent 1px);
     background-size: 40px 40px;
     background-position: center;
+    overflow-x: hidden; /* Ensure no horizontal overflow */
+    max-width: 100vw; /* Limit width to viewport width */
 }
 
 .portfolio-header {
@@ -430,6 +453,7 @@ footer {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    overflow: hidden; /* Prevent image overflow */
 }
 
 .project-image-frame {
@@ -438,14 +462,16 @@ footer {
     padding: 10px;
     background-color: rgba(14, 14, 20, 0.7);
     box-shadow: 0 0 20px rgba(32, 221, 203, 0.2), inset 0 0 15px rgba(32, 221, 203, 0.1);
+    max-width: 100%; /* Ensure frame doesn't overflow */
 }
 
-.project-image {
+.project-image, video {
     width: 100%;
     height: auto;
     display: block;
     filter: saturate(0.8) contrast(1.1);
     transition: all 0.3s ease;
+    max-width: 100%; /* Ensure media doesn't overflow */
 }
 
 .project-image:hover {
@@ -506,7 +532,7 @@ footer {
 /* Responsive adjustments for portfolio */
 @media (max-width: 768px) {
     .glitch-text {
-        font-size: 3rem;
+        font-size: 3.8rem; /* Increased from 3rem */
         letter-spacing: 5px;
     }
     
@@ -520,17 +546,18 @@ footer {
     
     .project-description {
         font-size: 1rem;
+        padding: 0 10px; /* Reduce padding */
+        word-wrap: break-word; /* Ensure text wraps */
     }
     
-    .portfolio-intro {
-        font-size: 1.1rem;
-        margin-bottom: 40px;
+    .container {
+        padding: 0 15px; /* Reduce padding on smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .glitch-text {
-        font-size: 2.2rem;
+        font-size: 3rem; /* Increased from 2.2rem */
         letter-spacing: 3px;
     }
     
@@ -544,10 +571,57 @@ footer {
     
     .project-image-frame {
         padding: 5px;
+        border-width: 1px; /* Thinner border */
     }
     
     .portfolio-intro {
         font-size: 1rem;
         margin-bottom: 30px;
+    }
+    
+    .portfolio-header {
+        padding: 60px 0 30px; /* Reduce padding */
+    }
+    
+    .container {
+        padding: 0 10px; /* Further reduce padding */
+    }
+    
+    .back-link {
+        left: 10px; /* Position closer to edge */
+        top: 20px;
+    }
+    
+    .portfolio-item {
+        padding-left: 12px; /* Further reduce padding */
+        border-left-width: 1px; /* Thinner border */
+    }
+    
+    .portfolio-item::before {
+        left: -6px; /* Adjust dot position */
+        width: 10px; /* Smaller dot */
+        height: 10px;
+    }
+    
+    /* Fix for embedded videos */
+    .project-image-frame video {
+        height: auto !important; /* Override any fixed heights */
+        max-height: 70vh; /* Limit height */
+    }
+}
+
+/* Fix for devices with very small width */
+@media (max-width: 360px) {
+    .glitch-text {
+        font-size: 2.5rem; /* Increased from 1.8rem */
+        letter-spacing: 2px;
+    }
+    
+    .cyberpunk-heading {
+        font-size: 1.3rem;
+    }
+    
+    .portfolio-item {
+        padding-left: 10px;
     }
 }

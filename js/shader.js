@@ -104,55 +104,49 @@
             
             float bubbleEffect = (p1 * 0.5 + p2 * 0.3 + p3 * 0.2);
             
-            //vec3 color = mix(vec3(0.08, 0.0, 0.08), vec3(0.0), bubbleEffect);
+            // Base color with alpha for background
+            vec4 baseColor = vec4(0.01, 0.0, 0.05, 0.8); 
             
-            //float highlight = pow(bubbleEffect, 3.0) * 0.3;
-            //color += vec3(highlight * 0.5, highlight * 0.9, highlight * 0.5);
-
-            vec3 color = vec3(0.0);
+            // Initialize with transparent base 
+            vec4 color = baseColor;
             
             vec2 uvVig = gl_FragCoord.xy / u_resolution.xy;
             float vig = 1.0 - pow(abs(uvVig.x - 0.5) * 1.2, 2.0) - pow(abs(uvVig.y - 0.5) * 1.2, 2.0);
             vig = pow(vig, 0.3) * 0.7 + 0.3;
-            color *= mix(1.0, vig, 0.6);
+            color.rgb *= mix(1.0, vig, 0.6);
+
             
-            float staffBg = 0.0;
-            float lineSpacing = 0.1;
-            float centerY = 0.5;
-            float staffHeight = lineSpacing * 6.0;
-            float staffBgTop = centerY - staffHeight / 2.0;
-            float staffBgBottom = centerY + staffHeight / 2.0;
+        
             
-            if (uv.y > staffBgTop && uv.y < staffBgBottom) {
-                float fadeEdge = min(
-                    smoothstep(staffBgTop, staffBgTop + 0.05, uv.y),
-                    smoothstep(staffBgBottom, staffBgBottom - 0.05, uv.y)
-                );
-                staffBg = 0.8 * fadeEdge;
-                color = mix(color, vec3(0.0, 0.0, 0.0), staffBg);
-            }
+            // float lineThickness = 0.004;
+            // float staffHeight2 = lineSpacing * 4.0;
+            // float firstLineY = centerY - staffHeight2 / 2.0;
             
-            float lineThickness = 0.004;
-            float staffHeight2 = lineSpacing * 4.0;
-            float firstLineY = centerY - staffHeight2 / 2.0;
+            // float lineIntensity = 0.0;
+            // for (int i = 0; i < 5; i++) {
+            //     float lineY = firstLineY + float(i) * lineSpacing;
+            //     lineIntensity += drawLine(uv, lineY, lineThickness);
+            // }
             
-            float lineIntensity = 0.0;
-            for (int i = 0; i < 5; i++) {
-                float lineY = firstLineY + float(i) * lineSpacing;
-                lineIntensity += drawLine(uv, lineY, lineThickness);
-            }
+            // // Lines with full opacity
+            // vec4 lineColor = vec4(1.0, 1.0, 1.0, 0.2);
+            // color = mix(color, lineColor, min(lineIntensity, 0.7));
             
-            vec3 lineColor = vec3(1, 1, 1);
-            color = mix(color, lineColor, min(lineIntensity, 0.7));
+            // Apply glitch effect while preserving alpha where appropriate
+            vec3 glitchedRgb = applyMpegGlitch(uv, color.rgb, u_time);
+            color = vec4(glitchedRgb, color.a);
             
-            color = applyMpegGlitch(uv, color, u_time);
-            
-            gl_FragColor = vec4(color, 1.0);
+            gl_FragColor = color;
         }
     `;
 
     const canvas = document.getElementById('shader-canvas');
-    const gl = canvas.getContext('webgl');
+    // Create WebGL context with alpha support
+    const gl = canvas.getContext('webgl', {
+        alpha: true,
+        premultipliedAlpha: false,
+        preserveDrawingBuffer: true
+    });
     
     if (!gl) {
         console.error('WebGL not supported');
@@ -252,9 +246,17 @@
     gl.bindTexture(gl.TEXTURE_2D, dummyTexture);
     gl.uniform1i(textureLocation, 0);
     
+    // Enable alpha blending
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    
     let startTime = Date.now();
     
     function render() {
+        // Clear with transparent black
+        gl.clearColor(0.0, 0.0, 0.0, 0.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        
         const currentTime = (Date.now() - startTime) / 1000;
         gl.uniform1f(timeLocation, currentTime);
         
