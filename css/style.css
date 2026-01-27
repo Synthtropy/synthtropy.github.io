@@ -270,7 +270,11 @@ header {
     background-color: #0a0a12;
     background-image:
         radial-gradient(ellipse at 50% 0%, rgba(32, 221, 203, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 50%, rgba(156, 39, 176, 0.06) 0%, transparent 40%);
+        radial-gradient(ellipse at 80% 50%, rgba(156, 39, 176, 0.06) 0%, transparent 40%),
+        url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .product-header {
