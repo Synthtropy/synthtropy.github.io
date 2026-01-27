@@ -7,41 +7,37 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="page-content">
-        <div class="black-area">
-            <div class="shader-container">
-                <canvas id="shader-canvas"></canvas>
-            </div>
-            <div class="container">
+    <div class="page-layout">
+        <div class="page-layout__content">
+            <div class="main-card card card--glow">
                 <header>
                     <div class="logo-wrapper">
                         <img src="img/synthtropy.svg" alt="Synthtropy Logo" class="logo-image">
-                        <!-- <div class="logo">
-                            <span class="logo-synth" data-text="Synth">Synthtropy</span>
-                        </div>
-                    </div> -->
+                    </div>
                 </header>
+
+                <div class="product-grid">
+                    <a href="sointu/" class="card card--small card--interactive product-card">
+                        <div class="product-card__icon">S</div>
+                        <div class="product-card__subtitle">Coming Soon</div>
+                        <h2 class="product-card__title">Sointu</h2>
+                        <p class="product-card__description">
+                            Live performance studio where sound, visuals, and lighting connect. Build with nodes. Perform in real-time.
+                        </p>
+                        <span class="product-card__arrow">&rarr;</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <footer>
-        <div class="container">
-            <p class="copyright">
-                &copy; 2025 Synthtropy. All rights reserved. 
-                <a href="mailto:contact@synthtropy.com" class="contact">contact@synthtropy.com</a>
-            </p>
-        </div>
-    </footer>
 
-    <script type="x-shader/x-vertex" id="vertex-shader">
-        attribute vec2 a_position;
-        
-        void main() {
-            gl_Position = vec4(a_position, 0.0, 1.0);
-        }
-    </script>
-    
-    <script src="js/shader.js"></script>
+        <footer>
+            <div class="container">
+                <p class="copyright">
+                    &copy; 2026 Synthtropy. All rights reserved.
+                    <a href="mailto:contact@synthtropy.com" class="contact">contact@synthtropy.com</a>
+                </p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
