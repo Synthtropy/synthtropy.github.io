@@ -279,6 +279,10 @@ a {
     padding: 30px 32px;
 }
 
+.feature-grid > .feature-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
 .feature-card__title {
     font-size: 1rem;
     font-weight: 700;
