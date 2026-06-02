@@ -1,8 +1,8 @@
-# Sointu
+# Skene
 
 **Create music. See it move. Control the lights.**
 
-Sointu is a live performance studio where sound, visuals, and lighting connect in one place. Build with nodes. Perform in real-time. Everything syncs.
+Skene is a live performance studio where sound, visuals, and lighting connect in one place. Build with nodes. Perform in real-time. Everything syncs.
 
 Runs on iPhone, iPad, and Mac. Projects sync via iCloud.
 
@@ -16,7 +16,7 @@ Runs on iPhone, iPad, and Mac. Projects sync via iCloud.
 Connect blocks to build instruments, effects, visuals, and light shows — all reacting to each other in real-time. No separate apps, no export step.
 
 **For technical users:**  
-Sointu is a modular signal graph for audio, MIDI, OSC, and GPU-driven visuals. Current highlights:
+Skene is a modular signal graph for audio, MIDI, OSC, and GPU-driven visuals. Current highlights:
 
 - Drum machine and step sequencer
 - MIDI routing with flexible learn and controller mapping
@@ -44,6 +44,6 @@ This is a teaser preview — features are actively evolving.
 
 ## About
 
-Sointu means "chord" in Finnish.
+Skene means "chord" in Finnish.
 
 Built by [your name / company].
