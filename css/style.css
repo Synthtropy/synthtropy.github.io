@@ -6,8 +6,8 @@
     --text: #e4e4f0;
     --text-muted: #7070a0;
     --text-dim: #363650;
-    --accent: #F5C500;
-    --accent-dark: #d4a800;
+    --accent: #D3FFA7;
+    --accent-dark: #b3e87f;
     --radius: 14px;
     --radius-sm: 9px;
 }
@@ -61,11 +61,6 @@ a {
     width: auto;
     display: block;
     opacity: 0.8;
-    transition: opacity 0.2s;
-}
-
-.site-logo:hover {
-    opacity: 1;
 }
 
 /* ── Hero ─────────────────────────────────────── */
@@ -91,13 +86,21 @@ a {
     display: block;
 }
 
+.hero__logo {
+    width: 320px;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto 28px;
+    display: block;
+}
+
 .hero__badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 5px 14px;
-    background: rgba(245, 197, 0, 0.08);
-    border: 1px solid rgba(245, 197, 0, 0.25);
+    background: rgba(211, 255, 167, 0.08);
+    border: 1px solid rgba(211, 255, 167, 0.25);
     border-radius: 20px;
     font-size: 0.78rem;
     font-weight: 700;
@@ -184,7 +187,7 @@ a {
 }
 
 .btn--secondary:hover {
-    border-color: rgba(245, 197, 0, 0.3);
+    border-color: rgba(211, 255, 167, 0.3);
     color: var(--accent);
 }
 
@@ -300,8 +303,8 @@ a {
     display: inline-block;
     margin-top: 14px;
     padding: 2px 9px;
-    background: rgba(245, 197, 0, 0.08);
-    border: 1px solid rgba(245, 197, 0, 0.22);
+    background: rgba(211, 255, 167, 0.08);
+    border: 1px solid rgba(211, 255, 167, 0.22);
     border-radius: 4px;
     font-size: 0.7rem;
     color: var(--accent);
@@ -390,7 +393,7 @@ a {
 }
 
 .product-card:hover {
-    border-color: rgba(245, 197, 0, 0.35);
+    border-color: rgba(211, 255, 167, 0.35);
     background: var(--surface-2);
 }
 
