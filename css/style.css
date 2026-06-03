@@ -6,10 +6,8 @@
     --text: #e4e4f0;
     --text-muted: #7070a0;
     --text-dim: #363650;
-    --accent: #E8633F;
-    --accent-dark: #c9512f;
-    --accent-rgb: 232, 99, 63;
-    --accent-lime: #C5F59A;
+    --accent: #D3FFA7;
+    --accent-dark: #b3e87f;
     --radius: 14px;
     --radius-sm: 9px;
 }
@@ -63,11 +61,6 @@ a {
     width: auto;
     display: block;
     opacity: 0.8;
-    transition: opacity 0.2s;
-}
-
-.site-logo:hover {
-    opacity: 1;
 }
 
 /* ── Hero ─────────────────────────────────────── */
@@ -75,16 +68,6 @@ a {
 .hero {
     padding: 88px 0 72px;
     text-align: center;
-    background:
-        radial-gradient(ellipse 80% 60% at 75% 0%, rgba(120, 70, 170, 0.22), transparent 60%),
-        radial-gradient(ellipse 70% 60% at 15% 100%, rgba(220, 110, 60, 0.16), transparent 55%);
-}
-
-.hero__wordmark {
-    height: 30px;
-    width: auto;
-    margin: 0 auto 28px;
-    display: block;
 }
 
 .hero__app-icon {
@@ -97,8 +80,16 @@ a {
 }
 
 .hero__product-logo {
-    height: 150px;
+    height: 80px;
     width: auto;
+    margin: 0 auto 28px;
+    display: block;
+}
+
+.hero__logo {
+    width: 320px;
+    max-width: 80%;
+    height: auto;
     margin: 0 auto 28px;
     display: block;
 }
@@ -108,8 +99,8 @@ a {
     align-items: center;
     gap: 8px;
     padding: 5px 14px;
-    background: rgba(var(--accent-rgb), 0.08);
-    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    background: rgba(211, 255, 167, 0.08);
+    border: 1px solid rgba(211, 255, 167, 0.25);
     border-radius: 20px;
     font-size: 0.78rem;
     font-weight: 700;
@@ -196,7 +187,7 @@ a {
 }
 
 .btn--secondary:hover {
-    border-color: rgba(var(--accent-rgb), 0.3);
+    border-color: rgba(211, 255, 167, 0.3);
     color: var(--accent);
 }
 
@@ -312,8 +303,8 @@ a {
     display: inline-block;
     margin-top: 14px;
     padding: 2px 9px;
-    background: rgba(var(--accent-rgb), 0.08);
-    border: 1px solid rgba(var(--accent-rgb), 0.22);
+    background: rgba(211, 255, 167, 0.08);
+    border: 1px solid rgba(211, 255, 167, 0.22);
     border-radius: 4px;
     font-size: 0.7rem;
     color: var(--accent);
@@ -402,7 +393,7 @@ a {
 }
 
 .product-card:hover {
-    border-color: rgba(var(--accent-rgb), 0.35);
+    border-color: rgba(211, 255, 167, 0.35);
     background: var(--surface-2);
 }
 
@@ -450,7 +441,7 @@ footer {
 
 .footer__copy {
     font-size: 0.82rem;
-    color: var(--accent-lime);
+    color: var(--text-dim);
 }
 
 .footer__note {
@@ -536,7 +527,7 @@ footer {
     }
 
     .hero__product-logo {
-        height: 100px;
+        height: 60px;
     }
 
     .container {

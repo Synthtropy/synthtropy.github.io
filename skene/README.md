@@ -44,6 +44,4 @@ This is a teaser preview — features are actively evolving.
 
 ## About
 
-Skene means "chord" in Finnish.
-
-Built by [your name / company].
+Built by Synthtropy.
