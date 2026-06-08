@@ -63,6 +63,35 @@ a {
     opacity: 0.8;
 }
 
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.site-header__home {
+    display: inline-flex;
+}
+
+.site-header__nav {
+    display: flex;
+    gap: 22px;
+}
+
+.site-header__nav a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.18s;
+}
+
+.site-header__nav a:hover,
+.site-header__nav a.is-active {
+    color: var(--accent);
+}
+
 /* ── Hero ─────────────────────────────────────── */
 
 .hero {
