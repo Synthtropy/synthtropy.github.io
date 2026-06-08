@@ -102,6 +102,51 @@
     margin-left: 4px;
 }
 
+/* Collapsible sections (native <details>/<summary>) */
+.doc-nav__group {
+    margin: 0;
+}
+
+.doc-nav__summary {
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+    list-style: none;
+}
+
+.doc-nav__summary::-webkit-details-marker {
+    display: none;
+}
+
+.doc-nav__summary > a {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.doc-nav__chevron {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    color: var(--text-dim);
+}
+
+.doc-nav__chevron::before {
+    content: "\203A";
+    font-size: 1.05rem;
+    line-height: 1;
+    transition: transform 0.15s ease;
+}
+
+.doc-nav__group[open] > .doc-nav__summary .doc-nav__chevron::before {
+    transform: rotate(90deg);
+}
+
+.doc-nav__summary:hover .doc-nav__chevron {
+    color: var(--text-muted);
+}
+
 /* ── Article ──────────────────────────────────── */
 
 .doc-article {
