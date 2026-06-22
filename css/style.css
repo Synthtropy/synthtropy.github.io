@@ -91,6 +91,14 @@ a {
     background: rgba(11, 11, 20, 0.72);
     backdrop-filter: saturate(150%) blur(14px);
     -webkit-backdrop-filter: saturate(150%) blur(14px);
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+/* Hide the header while scrolling down (avoids clashing with the mobile URL
+   bar); it slides back in when scrolling up or at the top. */
+.site-header.is-hidden {
+    transform: translateY(-100%);
 }
 
 .site-logo {

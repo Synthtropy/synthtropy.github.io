@@ -291,12 +291,25 @@
     <script>
         (function () {
             var root = document.documentElement;
+            var header = document.querySelector('.site-header');
+            var lastY = window.scrollY;
 
-            // Drive the gradient backdrop from scroll position (0..1).
+            // Drive the gradient backdrop from scroll position (0..1) and
+            // hide/show the header based on scroll direction.
             function onScroll() {
+                var y = window.scrollY;
                 var max = root.scrollHeight - window.innerHeight;
-                var sp = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+                var sp = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
                 root.style.setProperty('--sp', sp.toFixed(4));
+
+                if (header) {
+                    if (y > lastY && y > 120) {
+                        header.classList.add('is-hidden');
+                    } else if (y < lastY || y <= 0) {
+                        header.classList.remove('is-hidden');
+                    }
+                }
+                lastY = y;
             }
             var ticking = false;
             window.addEventListener('scroll', function () {
