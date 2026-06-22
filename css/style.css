@@ -449,6 +449,43 @@ a {
     color: #1a1200;
 }
 
+/* ── Spotlight (featured feature box) ─────────── */
+
+.spotlight {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 44px;
+    align-items: center;
+    padding: 36px;
+    background: var(--surface-glass);
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+}
+
+.spotlight .section__subtitle {
+    max-width: none;
+}
+
+.spotlight__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 880px) {
+    .spotlight {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 24px;
+    }
+}
+
 /* ── Reveal on scroll ─────────────────────────── */
 
 .reveal {
