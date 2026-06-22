@@ -10,8 +10,14 @@
 <body>
     <div class="bg"></div>
     <div class="page">
+        <!-- Hero media: anchored to the top, fades into the gradient and on scroll.
+             Swap the <img> for <video autoplay muted loop playsinline> when ready. -->
+        <div class="hero-media" id="hero-media">
+            <img src="img/top.jpg" alt="" class="hero-media__img">
+        </div>
         <header class="site-header">
             <div class="container site-header__inner">
+                <a href="/" class="site-header__home"><img src="/img/logo.png" alt="Skene" class="site-logo"></a>
                 <nav class="site-header__nav">
                     <a href="/docs/">Docs</a>
                 </nav>
@@ -23,7 +29,7 @@
             <!-- Hero -->
             <div class="hero">
                 <div class="container">
-                    <img src="img/logo-main.png" alt="Skene by Synthtropy" class="hero__logo">
+                    <img src="img/skene-logo.png" alt="Skene by Synthtropy" class="hero__logo">
                     <p class="hero__tagline">
                         One app for the whole show. Compose music, design sound, build reactive visuals, and run the lights &mdash; all in a single node-based workstation for Mac, iPad, and iPhone.
                     </p>
@@ -207,12 +213,18 @@
             <!-- Controllers -->
             <div class="section section--bordered">
                 <div class="container">
-                    <div class="section__label">Hardware</div>
-                    <h2 class="section__title">MIDI controller support<span class="section__badge section__badge--wip">Work in Progress</span></h2>
-                    <p class="section__subtitle">Map hardware to clips, transport, and parameters &mdash; with RGB pad feedback, encoder control, and screen or LED feedback on supported devices. Controller support is actively in development; here&rsquo;s what&rsquo;s mapped so far.</p>
-                    <div class="controller-feature">
-                        <img src="img/komplete-kontrol-s-mk2-support.jpeg" alt="Komplete Kontrol S MK2 integration with Skene" class="controller-feature__img zoomable">
+                    <div class="spotlight">
+                        <div class="spotlight__text">
+                            <div class="section__label">Hardware</div>
+                            <h2 class="section__title">MIDI controller support<span class="section__badge section__badge--wip">Work in Progress</span></h2>
+                            <p class="section__subtitle">Map hardware to clips, transport, and parameters &mdash; with RGB pad feedback, encoder control, and screen or LED feedback on supported devices. Controller support is actively in development and growing.</p>
+                        </div>
+                        <div class="spotlight__media">
+                            <img src="img/komplete-kontrol-s-mk2-support.jpeg" alt="Komplete Kontrol S MK2 integration with Skene" class="spotlight__img zoomable">
+                        </div>
                     </div>
+
+                    <h3 class="controller-subhead">Currently supported devices:</h3>
                     <div class="controller-groups">
                         <div class="controller-group">
                             <div class="controller-group__brand">Ableton</div>
@@ -308,15 +320,21 @@
         (function () {
             var root = document.documentElement;
             var header = document.querySelector('.site-header');
+            var heroMedia = document.querySelector('.hero-media');
             var lastY = window.scrollY;
 
-            // Drive the gradient backdrop from scroll position (0..1) and
-            // hide/show the header based on scroll direction.
+            // Drive the gradient backdrop from scroll position (0..1), fade the
+            // hero media out on scroll, and hide/show the header by direction.
             function onScroll() {
                 var y = window.scrollY;
                 var max = root.scrollHeight - window.innerHeight;
                 var sp = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
                 root.style.setProperty('--sp', sp.toFixed(4));
+
+                if (heroMedia) {
+                    var fade = Math.max(0, 1 - y / (window.innerHeight * 0.7));
+                    root.style.setProperty('--hero-fade', fade.toFixed(3));
+                }
 
                 if (header) {
                     if (y > lastY && y > 120) {

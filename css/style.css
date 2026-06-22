@@ -1,5 +1,5 @@
 :root {
-    --bg: #0b0b14;
+    --bg: #1a1a28;
     --margin-bg: #060608; /* near-black frame around the centered stage */
     --stage: 1180px;
     --surface: #13131f;
@@ -7,10 +7,10 @@
     --surface-glass: rgba(18, 18, 30, 0.62);
     --border: #252538;
     --border-soft: rgba(255, 255, 255, 0.08);
-    --text: #e8e8f4;
-    --text-soft: #bcbcda;
-    --text-muted: #8888b0;
-    --text-dim: #4a4a68;
+    --text: #ffffff;
+    --text-soft: #ffffff;
+    --text-muted: #ffffff;
+    --text-dim: #ffffff;
     --accent: #D3FFA7;
     --accent-dark: #b3e87f;
     --radius: 14px;
@@ -47,9 +47,9 @@ body {
     z-index: -1;
     pointer-events: none;
     background:
-        radial-gradient(58vw 55vh at 18% calc(6% + var(--sp) * 28%), rgba(211, 255, 167, 0.11), transparent 60%),
-        radial-gradient(56vw 60vh at 84% calc(24% + var(--sp) * 42%), rgba(138, 96, 234, 0.20), transparent 60%),
-        radial-gradient(72vw 66vh at 50% calc(124% - var(--sp) * 74%), rgba(44, 162, 178, 0.18), transparent 62%),
+        radial-gradient(58vw 55vh at 18% calc(6% + var(--sp) * 28%), rgba(211, 255, 167, 0.18), transparent 60%),
+        radial-gradient(56vw 60vh at 84% calc(24% + var(--sp) * 42%), rgba(138, 96, 234, 0.32), transparent 60%),
+        radial-gradient(72vw 66vh at 50% calc(124% - var(--sp) * 74%), rgba(44, 162, 178, 0.30), transparent 62%),
         var(--bg);
 }
 
@@ -78,6 +78,34 @@ a {
 
 .page__content {
     flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Hero media (top banner: image/video) ─────────
+   Anchored to the top of the stage, behind the header. Masked to fade into
+   the gradient at its bottom, and faded out on scroll via JS (--hero-fade). */
+
+.hero-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 88vh;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: var(--hero-fade, 1);
+    -webkit-mask-image: linear-gradient(to bottom, #000 48%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 48%, transparent 100%);
+}
+
+.hero-media__img,
+.hero-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* ── Site header ──────────────────────────────── */
@@ -102,16 +130,16 @@ a {
 }
 
 .site-logo {
-    height: 26px;
+    height: 40px;
     width: auto;
     display: block;
-    opacity: 0.8;
+    padding: 0px;
 }
 
 .site-header__inner {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 16px;
 }
 
@@ -146,7 +174,13 @@ a {
 /* ── Hero ─────────────────────────────────────── */
 
 .hero {
-    padding: 88px 0 72px;
+    position: relative;
+    z-index: 1;
+    min-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0 80px;
     text-align: center;
 }
 
@@ -167,11 +201,12 @@ a {
 }
 
 .hero__logo {
-    width: 320px;
+    width: 340px;
     max-width: 80%;
     height: auto;
     margin: 0 auto 28px;
     display: block;
+    filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.55));
 }
 
 .hero__badge {
@@ -218,6 +253,7 @@ a {
     max-width: 540px;
     margin: 0 auto 40px;
     line-height: 1.7;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
 }
 
 .hero__company-tagline {
@@ -672,22 +708,15 @@ a {
 
 /* ── Controllers ──────────────────────────────── */
 
-.controller-feature {
-    margin: 36px 0 4px;
-}
-
-.controller-feature__img {
-    display: block;
-    width: 100%;
-    max-width: 560px;
-    height: auto;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-soft);
-    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5);
+.controller-subhead {
+    margin: 52px 0 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
 }
 
 .controller-groups {
-    margin-top: 40px;
+    margin-top: 22px;
     display: flex;
     flex-direction: column;
     gap: 26px;
