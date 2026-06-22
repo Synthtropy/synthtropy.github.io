@@ -478,6 +478,16 @@ a {
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
 }
 
+/* Let image-bearing grid columns shrink below the image's intrinsic width.
+   Without this, CSS grid fr/auto tracks blow out to the image size (and the
+   image renders huge) — most visibly on Safari. */
+.overview__media,
+.spotlight__media,
+.shot,
+.feature-card {
+    min-width: 0;
+}
+
 @media (max-width: 880px) {
     .spotlight {
         grid-template-columns: 1fr;
