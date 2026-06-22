@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Controllers &mdash; Skene Docs</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/docs/docs.css">
+</head>
+<body>
+    <div class="page">
+        <header class="site-header">
+            <div class="container site-header__inner">
+                <a href="/" class="site-header__home"><img src="/img/skene-logo.png" alt="Skene" class="site-logo"></a>
+                <nav class="site-header__nav">
+                    <a href="/">Home</a>
+                    <a href="/docs/" class="is-active">Docs</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="page__content">
+            <div class="container doc-layout">
+                <aside class="doc-nav">
+                    <button class="doc-nav__toggle" aria-label="Toggle navigation">Menu</button>
+                    <div class="doc-nav__panel">
+                        <nav class="doc-nav__tree" aria-label="Documentation"><a class="doc-nav__home" href="/docs/">Documentation</a><ul><li><a href="/docs/getting-started/">Getting Started</a></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/daw-view/">DAW View</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/daw-view/creating-tracks/">Creating Tracks</a></li><li><a href="/docs/daw-view/piano-roll/">The Piano Roll</a></li><li><a href="/docs/daw-view/clip-editing/">Clip Editing</a></li><li><a href="/docs/daw-view/midi-note-editing/">MIDI Note Editing</a></li><li><a href="/docs/daw-view/key-and-scale/">Key &amp; Scale</a></li><li><a href="/docs/daw-view/automation-curves/">Automation Curves</a></li><li><a href="/docs/daw-view/rack-and-effects/">Rack &amp; Effects</a></li><li><a href="/docs/daw-view/audio-tracks/">Audio Tracks</a></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/daw-view/drum-tracks/">Drum Tracks</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/daw-view/drum-tracks/drum-sampler/">Drum Sampler</a></li><li><a href="/docs/daw-view/drum-tracks/drum-editor/">Drum Editor</a></li></ul></details></li><li><a href="/docs/daw-view/multi-track-view/">Multi-Track View</a></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/mpe/">MPE</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/mpe/track-expression-mode/">Track Expression Mode</a></li><li><a href="/docs/mpe/editing-mpe-curves/">Editing MPE Curves</a></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/node-view/">Node View</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/node-view/visuals/">Visuals</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/node-view/visuals/video-sampler/">Video Sampler</a></li><li><a href="/docs/node-view/visuals/video-effects/">Video Effects</a></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/node-view/dmx/">DMX Lighting</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/node-view/dmx/art-net/">Art-Net Setup</a></li><li><a href="/docs/node-view/dmx/fixtures/">Fixtures</a></li><li><a href="/docs/node-view/dmx/channel-map/">Channel Map</a></li><li><a href="/docs/node-view/dmx/using-dmx-nodes/">Using DMX Nodes</a></li></ul></details></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/components/">Components</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/components/audio/">Audio</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/components/audio/analog-synthesizer/">Analog Synthesizer</a></li><li><a href="/docs/components/audio/sampler/">Sampler</a></li><li><a href="/docs/components/audio/drum-sampler/">Drum Sampler</a></li><li><a href="/docs/components/audio/drum-synthesizer/">Drum Synthesizer</a></li><li><a href="/docs/components/audio/guitar-amp/">Guitar Amp</a></li><li><a href="/docs/components/audio/audio-input/">Audio Input</a></li><li><a href="/docs/components/audio/audio-mixer/">Audio Mixer</a></li><li><a href="/docs/components/audio/main-bus/">Main Bus</a></li><li><a href="/docs/components/audio/parametric-eq/">Parametric EQ</a></li><li><a href="/docs/components/audio/reverb/">Reverb</a></li><li><a href="/docs/components/audio/delay/">Delay</a></li><li><a href="/docs/components/audio/chorus/">Chorus</a></li><li><a href="/docs/components/audio/saturator/">Saturator</a></li><li><a href="/docs/components/audio/compressor/">Compressor</a></li><li><a href="/docs/components/audio/string-resonator/">String Resonator</a></li><li><a href="/docs/components/audio/freeze-and-stutter/">Freeze &amp; Stutter</a></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/components/midi/">MIDI</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/components/midi/arpeggiator/">Arpeggiator</a></li><li><a href="/docs/components/midi/midi-io/">MIDI I/O</a></li><li><a href="/docs/components/midi/midi-merge/">MIDI Merge</a></li><li><a href="/docs/components/midi/midi-transpose/">MIDI Transpose</a></li><li><a href="/docs/components/midi/midi-learn/">MIDI Learn</a></li><li><a href="/docs/components/midi/hid-input/">HID Input</a></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/components/tool/">Tool</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/components/tool/signal-generator/">Signal Generator</a></li><li><a href="/docs/components/tool/adsr-envelope/">ADSR Envelope</a></li><li><a href="/docs/components/tool/selector/">Selector</a></li><li><a href="/docs/components/tool/shift-register/">Shift Register</a></li><li><a href="/docs/components/tool/project-control/">Project Control</a></li><li><a href="/docs/components/tool/hsl-to-rgb/">HSL to RGB</a></li><li><a href="/docs/components/tool/logic-and-math/">Logic &amp; Math Operators</a></li><li><a href="/docs/components/tool/accelerometer/">Accelerometer</a></li><li><a href="/docs/components/tool/flashlight/">Flashlight</a></li><li><a href="/docs/components/tool/lidar-distance/">LiDAR Distance</a></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/components/visual/">Visual</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/components/visual/particle-emitter/">Particle Emitter</a></li><li><a href="/docs/components/visual/particle-emitter-from-image/">Particle Emitter from Image</a></li><li><a href="/docs/components/visual/particle-system/">Particle System</a></li><li><a href="/docs/components/visual/particle-physics/">Particle Physics</a></li><li><a href="/docs/components/visual/particle-transform/">Particle Transform</a></li><li><a href="/docs/components/visual/particle-sink/">Particle Sink</a></li><li><a href="/docs/components/visual/point-cloud-from-model/">Point Cloud From Model</a></li><li><a href="/docs/components/visual/sdf-composite-particles/">SDF Composite (Particles)</a></li><li><a href="/docs/components/visual/particle-renderer/">Particle Renderer</a></li><li><a href="/docs/components/visual/truedepth-camera/">TrueDepth Camera</a></li><li><a href="/docs/components/visual/camera-stream/">Camera Stream</a></li><li><a href="/docs/components/visual/mask-image/">Mask Image</a></li><li><a href="/docs/components/visual/person-segmentation/">Person Segmentation</a></li><li><a href="/docs/components/visual/noise-generator/">Noise Generator</a></li><li><a href="/docs/components/visual/video-mixer/">Video Mixer</a></li><li><a href="/docs/components/visual/view-preview/">View Preview</a></li><li><a href="/docs/components/visual/daw-post-process/">DAW Post Process</a></li><li><a href="/docs/components/visual/pip-overlay/">PIP Overlay</a></li><li><a href="/docs/components/visual/image-loader/">Image Loader</a></li><li><a href="/docs/components/visual/sdf-processor/">SDF Processor</a></li><li><a href="/docs/components/visual/sdf-render-texture/">SDF Render (Texture)</a></li><li><a href="/docs/components/visual/sdf-gravity-sink/">SDF Gravity Sink</a></li><li><a href="/docs/components/visual/image-distortion/">Image Distortion</a></li><li><a href="/docs/components/visual/mps-blur/">MPS Blur</a></li><li><a href="/docs/components/visual/luma-threshold/">Luma Threshold</a></li><li><a href="/docs/components/visual/texture-feedback/">Texture Feedback</a></li><li><a href="/docs/components/visual/scanlines/">Scanlines</a></li><li><a href="/docs/components/visual/pixelate/">Pixelate</a></li><li><a href="/docs/components/visual/chromatic-aberration/">Chromatic Aberration</a></li><li><a href="/docs/components/visual/color-manipulation/">Color Manipulation</a></li><li><a href="/docs/components/visual/texture-generator/">Texture Generator</a></li><li><a href="/docs/components/visual/text-render/">Text Render</a></li><li><a href="/docs/components/visual/dither-render/">Dither Render</a></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/components/dmx/">DMX</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/components/dmx/dmx-fixture/">DMX Fixture</a></li><li><a href="/docs/components/dmx/light-bar/">Light Bar</a></li></ul></details></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group" open><summary class="doc-nav__summary"><a href="/docs/controllers/">Controllers</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/controllers/virtual-piano/">Virtual Piano</a></li><li><a href="/docs/controllers/pads/">Pads</a></li><li><a href="/docs/controllers/chord-pads/">Chord Pads</a></li><li><a href="/docs/controllers/hardware-controllers/" class="is-active">Hardware Controllers <span class="doc-nav__wip">WIP</span></a></li></ul></details></li><li><a href="/docs/mixer/">Mixer</a></li><li><a href="/docs/arranger/">Arranger</a></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/tools/">Tools</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/tools/audio-recorder/">Audio Recorder</a></li><li><a href="/docs/tools/tuner/">Tuner</a></li></ul></details></li><li class="doc-nav__group-item"><details class="doc-nav__group"><summary class="doc-nav__summary"><a href="/docs/reference/">Reference</a><span class="doc-nav__chevron" aria-hidden="true"></span></summary><ul><li><a href="/docs/reference/keyboard-shortcuts/">Keyboard Shortcuts</a></li><li><a href="/docs/reference/auv3-support/">AUv3 Support</a></li></ul></details></li></ul></nav>
+                    </div>
+                </aside>
+                <article class="doc-article">
+                    <nav class="doc-breadcrumb"><a href="/docs/">Documentation</a><span class="doc-breadcrumb__sep">/</span><a href="/docs/controllers/">Controllers</a><span class="doc-breadcrumb__sep">/</span><span>Hardware Controllers</span></nav><header class="doc-article__head"><h1>Hardware Controllers <span class="doc-badge doc-badge--wip">Work in progress</span></h1><p class="doc-lead">Physical MIDI keyboards and pad grids — and the ones with dedicated transport, LED, and selection integration.</p></header><div class="doc-body"><p>Hardware controllers serve the same purpose as the on-screen surfaces
+(<a href="/docs/controllers/virtual-piano/">Virtual Piano</a>, <a href="/docs/controllers/pads/">Pads</a>, <a href="/docs/controllers/chord-pads/">Chord Pads</a>):
+they’re how you play and drive Skene. The difference is just where they live — a
+physical keyboard or pad grid instead of the screen. Like the on-screen
+surfaces, they send notes to the selected track, so they work with the track’s
+instrument, <a href="/docs/daw-view/key-and-scale/">scale settings</a>, and
+<a href="/docs/mpe/">MPE</a>.</p>
+<p>Any Core MIDI device works for notes and CC. On top of that, Skene ships
+<strong>dedicated integration profiles</strong> for a number of controllers, adding
+hardware-specific behavior: transport buttons, LED feedback, node and track
+selection, and on-screen menu navigation.</p>
+<blockquote>
+<p><strong>Hardware controller support is a work in progress.</strong> Mappings, LED feedback,
+and the list of supported devices are still expanding. Some recognized
+controllers are only partially mapped, and button assignments may change
+between releases. If your controller isn’t listed, it still works as a standard
+MIDI device.</p>
+</blockquote>
+<h2 id="what-the-mappings-do" tabindex="-1"><a class="header-anchor" href="#what-the-mappings-do">What the mappings do</a></h2>
+<p>Controllers drive Skene through a set of named actions. The most common ones:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Play / Play-Pause</td>
+<td>Start playback, or toggle play/pause</td>
+</tr>
+<tr>
+<td>Stop</td>
+<td>Stop playback</td>
+</tr>
+<tr>
+<td>Record</td>
+<td>Toggle recording</td>
+</tr>
+<tr>
+<td>Return to start</td>
+<td>Jump the playhead back to the beginning</td>
+</tr>
+<tr>
+<td>Loop</td>
+<td>Toggle the loop on/off</td>
+</tr>
+<tr>
+<td>Metronome</td>
+<td>Toggle the metronome on/off</td>
+</tr>
+<tr>
+<td>Pre-count</td>
+<td>Toggle the recording count-in</td>
+</tr>
+<tr>
+<td>Undo / Redo</td>
+<td>Undo or redo the last edit</td>
+</tr>
+<tr>
+<td>Save</td>
+<td>Save the current project</td>
+</tr>
+<tr>
+<td>Add node</td>
+<td>Open the node creator</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>Delete the current selection</td>
+</tr>
+<tr>
+<td>DAW navigation</td>
+<td>Move the clip/track selection (left / right / up / down)</td>
+</tr>
+<tr>
+<td>Focus toggle</td>
+<td>Switch focus between the track list and the clip detail (piano roll)</td>
+</tr>
+<tr>
+<td>Menu navigation</td>
+<td>Move the cursor / confirm / back in on-screen menus and pop-ups</td>
+</tr>
+<tr>
+<td>Node-select slots</td>
+<td>Store and recall nodes on dedicated pads (short press recalls, long press stores)</td>
+</tr>
+<tr>
+<td>Context-select slots</td>
+<td>Recall context / parameter pages</td>
+</tr>
+<tr>
+<td>App-view switch</td>
+<td>Switch between Arranger, DAW, Nodes, Mixer, and controller views</td>
+</tr>
+<tr>
+<td>DAW track select</td>
+<td>Select a track directly from a pad or button</td>
+</tr>
+<tr>
+<td>Surface lock</td>
+<td>Lock the control surface to the current target</td>
+</tr>
+<tr>
+<td>Cycle node / group</td>
+<td>Step through the controlled node or parameter group</td>
+</tr>
+<tr>
+<td>Octave up / down</td>
+<td>Shift the keyboard octave</td>
+</tr>
+<tr>
+<td>Arp note rate</td>
+<td>Set the arpeggiator / note rate</td>
+</tr>
+</tbody>
+</table>
+<p>On controllers with addressable LEDs, transport and status buttons reflect the
+current state — for example the <strong>Metronome</strong> key is bright when the metronome is
+on and dim when it is off on the Komplete Kontrol S MK2 and Launchpad Pro MK3.</p>
+<h2 id="supported-controllers" tabindex="-1"><a class="header-anchor" href="#supported-controllers">Supported controllers</a></h2>
+<table>
+<thead>
+<tr>
+<th>Controller</th>
+<th>Connection</th>
+<th>Highlights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arturia KeyLab 88 MkII</td>
+<td>USB MIDI</td>
+<td>Recognized — keyboard, pads, encoders (transport/control buttons not yet mapped)</td>
+</tr>
+<tr>
+<td>Arturia KeyLab Essential</td>
+<td>USB MIDI</td>
+<td>Transport, loop, metronome pre-count, save/undo, DAW navigation</td>
+</tr>
+<tr>
+<td>Arturia MiniLab 3</td>
+<td>USB MIDI</td>
+<td>Transport, DAW navigation, focus toggle, pads</td>
+</tr>
+<tr>
+<td>Komplete Kontrol S MK1</td>
+<td>USB (HID)</td>
+<td>Transport, menu navigation, group cycling, key LEDs</td>
+</tr>
+<tr>
+<td>Komplete Kontrol S MK2</td>
+<td>USB (HID)</td>
+<td>Transport, metronome (LED feedback), node cycling, 4D navigation, key LEDs + displays</td>
+</tr>
+<tr>
+<td>Novation Launchkey Mini MK2</td>
+<td>USB MIDI</td>
+<td>Transport, undo, pads</td>
+</tr>
+<tr>
+<td>Novation Launchkey MK2</td>
+<td>USB MIDI</td>
+<td>Transport, undo, node-select slots, add node, pads</td>
+</tr>
+<tr>
+<td>Novation Launchkey MK3</td>
+<td>USB MIDI</td>
+<td>Transport, DAW track select, surface lock, pads</td>
+</tr>
+<tr>
+<td>Novation Launchkey MK4</td>
+<td>USB MIDI</td>
+<td>Transport, DAW track select, undo, pads</td>
+</tr>
+<tr>
+<td>Novation Launchpad Mini MK3</td>
+<td>USB MIDI</td>
+<td>Node-select slots, context slots, surface lock, 8×8 pad grid</td>
+</tr>
+<tr>
+<td>Novation Launchpad Pro MK3</td>
+<td>USB MIDI</td>
+<td>Transport, cursor navigation, metronome (LED feedback), node/context slots, app-view switch, 8×8 pad grid</td>
+</tr>
+<tr>
+<td>Ableton Push 2</td>
+<td>USB MIDI</td>
+<td>Transport, node-select slots, DAW track select, arp rate, octave shift, RGB pad grid</td>
+</tr>
+</tbody>
+</table>
+<h2 id="per-device-mappings" tabindex="-1"><a class="header-anchor" href="#per-device-mappings">Per-device mappings</a></h2>
+<h3 id="arturia-keylab-88-mkii" tabindex="-1"><a class="header-anchor" href="#arturia-keylab-88-mkii">Arturia KeyLab 88 MkII</a></h3>
+<p>Recognized as a controller, but its transport and control buttons are <strong>not yet
+mapped</strong> — this profile is a work in progress. The keyboard, pads, and encoders
+work as standard MIDI input; transport and function-button control is planned.</p>
+<h3 id="arturia-keylab-essential" tabindex="-1"><a class="header-anchor" href="#arturia-keylab-essential">Arturia KeyLab Essential</a></h3>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record, Return to start (Rewind)</li>
+<li><strong>Editing:</strong> Save, Undo</li>
+<li><strong>Loop / metronome:</strong> Loop, Metronome (pre-count)</li>
+<li><strong>DAW navigation:</strong> Left, Right</li>
+</ul>
+<h3 id="arturia-minilab-3" tabindex="-1"><a class="header-anchor" href="#arturia-minilab-3">Arturia MiniLab 3</a></h3>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record</li>
+<li><strong>Loop:</strong> Loop</li>
+<li><strong>DAW navigation:</strong> Left/Right (Rewind / Fast Forward), Up/Down (Track Previous / Next)</li>
+<li><strong>Focus:</strong> Main encoder click toggles track / detail focus</li>
+<li><strong>Pads</strong> for note and clip input</li>
+</ul>
+<h3 id="komplete-kontrol-s-mk1" tabindex="-1"><a class="header-anchor" href="#komplete-kontrol-s-mk1">Komplete Kontrol S MK1</a></h3>
+<p>Connects over HID for transport buttons and key LEDs.</p>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record, Loop, Return to start</li>
+<li><strong>Menu navigation:</strong> Up, Down, Left, Right, Enter, Back</li>
+<li><strong>Group cycling:</strong> Display Left / Right cycle the controlled parameter group</li>
+<li><strong>Key LEDs</strong> reflect playback of the selected track</li>
+</ul>
+<h3 id="komplete-kontrol-s-mk2" tabindex="-1"><a class="header-anchor" href="#komplete-kontrol-s-mk2">Komplete Kontrol S MK2</a></h3>
+<p>Connects over HID for transport buttons, key LEDs, and the displays.</p>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record, Loop</li>
+<li><strong>Metronome:</strong> Metro toggles the metronome — the key LED is bright when on, dim when off</li>
+<li><strong>Node cycling:</strong> Left / Right step through the controlled node</li>
+<li><strong>4D encoder:</strong> Up, Down, Left, Right, and press for menu navigation</li>
+<li><strong>Key LEDs + displays</strong> reflect playback and node parameters</li>
+</ul>
+<h3 id="novation-launchkey-mini-mk2" tabindex="-1"><a class="header-anchor" href="#novation-launchkey-mini-mk2">Novation Launchkey Mini MK2</a></h3>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record, Return to start (Rewind)</li>
+<li><strong>Editing:</strong> Undo (Track Right)</li>
+<li><strong>Pads</strong> for note and clip input</li>
+</ul>
+<h3 id="novation-launchkey-mk2" tabindex="-1"><a class="header-anchor" href="#novation-launchkey-mk2">Novation Launchkey MK2</a></h3>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record, Return to start (Rewind)</li>
+<li><strong>Editing:</strong> Undo (Track Right), Add node (New)</li>
+<li><strong>Node-select slots:</strong> 8 pads store and recall nodes</li>
+<li><strong>Pads</strong> for note and clip input</li>
+</ul>
+<h3 id="novation-launchkey-mk3" tabindex="-1"><a class="header-anchor" href="#novation-launchkey-mk3">Novation Launchkey MK3</a></h3>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record</li>
+<li><strong>Editing:</strong> Undo (Track Right)</li>
+<li><strong>Surface lock:</strong> Track Left</li>
+<li><strong>DAW track select:</strong> 8 track-select buttons</li>
+<li><strong>Pads</strong> for note and clip input</li>
+</ul>
+<h3 id="novation-launchkey-mk4" tabindex="-1"><a class="header-anchor" href="#novation-launchkey-mk4">Novation Launchkey MK4</a></h3>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record</li>
+<li><strong>Editing:</strong> Undo</li>
+<li><strong>DAW track select:</strong> 8 track-select buttons</li>
+<li><strong>Confirm:</strong> Select / Enter</li>
+<li><strong>Pads</strong> for note and clip input</li>
+</ul>
+<h3 id="novation-launchpad-mini-mk3" tabindex="-1"><a class="header-anchor" href="#novation-launchpad-mini-mk3">Novation Launchpad Mini MK3</a></h3>
+<ul>
+<li><strong>Node-select slots:</strong> 8 pads store and recall nodes</li>
+<li><strong>Context-select slots:</strong> 8 pads recall context pages</li>
+<li><strong>Surface lock</strong></li>
+<li><strong>8×8 RGB pad grid</strong> for note, clip, and grid input</li>
+</ul>
+<h3 id="novation-launchpad-pro-mk3" tabindex="-1"><a class="header-anchor" href="#novation-launchpad-pro-mk3">Novation Launchpad Pro MK3</a></h3>
+<ul>
+<li><strong>Transport:</strong> Play, Record</li>
+<li><strong>Editing:</strong> Undo, Redo</li>
+<li><strong>Cursor navigation:</strong> Up, Down, Left, Right, Select</li>
+<li><strong>Metronome:</strong> dedicated key toggles the metronome — the LED reflects on/off</li>
+<li><strong>Node-select slots</strong> and <strong>Context-select slots</strong></li>
+<li><strong>App-view switch:</strong> 8 buttons jump to Arranger / DAW / Nodes / Mixer / controller views</li>
+<li><strong>8×8 RGB pad grid</strong> for note, clip, and grid input</li>
+</ul>
+<h3 id="ableton-push-2" tabindex="-1"><a class="header-anchor" href="#ableton-push-2">Ableton Push 2</a></h3>
+<ul>
+<li><strong>Transport:</strong> Play, Stop, Record</li>
+<li><strong>Editing:</strong> Undo, Delete, Add node (Add Device)</li>
+<li><strong>Node-select slots:</strong> 8 pads store and recall nodes</li>
+<li><strong>DAW track select:</strong> lower row of 8 buttons</li>
+<li><strong>Arp note rate:</strong> dedicated rate buttons (1/4 … 1/32t)</li>
+<li><strong>Octave:</strong> Octave Up / Down</li>
+<li><strong>8×8 RGB pad grid</strong> with velocity and pressure</li>
+</ul>
+</div>
+                </article>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-inner">
+                    <span class="footer__copy">&copy; 2026 Synthtropy</span>
+                    <a href="mailto:contact@synthtropy.com" class="footer__contact">contact@synthtropy.com</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelector('.doc-nav__toggle')?.addEventListener('click', function () {
+            document.querySelector('.doc-nav')?.classList.toggle('is-open');
+        });
+    </script>
+</body>
+</html>

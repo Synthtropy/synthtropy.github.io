@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skene &mdash; DAW for iPhone, iPad, and Mac</title>
-    <meta name="description" content="Skene is a DAW for iPhone, iPad, and Mac. Node-based instruments and effects, full MPE expression, AUv3 hosting, and live performance tools &mdash; all in one app.">
+    <title>Skene &mdash; node-based DAW &amp; live performance for Mac, iPad, and iPhone</title>
+    <meta name="description" content="Skene is a node-based DAW and live-performance workstation for Mac, iPad, and iPhone. Built-in instruments and effects, AUv3 hosting, full MPE, reactive GPU visuals, DMX lighting, and MIDI controller support &mdash; one app for the whole show.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="bg"></div>
     <div class="page">
         <header class="site-header">
             <div class="container site-header__inner">
-                <a href="/" class="site-header__home"><img src="/img/skene-logo.png" alt="Skene" class="site-logo"></a>
                 <nav class="site-header__nav">
                     <a href="/docs/">Docs</a>
                 </nav>
@@ -25,11 +25,29 @@
                 <div class="container">
                     <img src="img/logo-main.png" alt="Skene by Synthtropy" class="hero__logo">
                     <p class="hero__tagline">
-                        A DAW for iPhone, iPad, and Mac. Node-based instruments and effects, full MPE expression, AUv3 hosting, and live performance tools &mdash; all in one app.
+                        One app for the whole show. Compose music, design sound, build reactive visuals, and run the lights &mdash; all in a single node-based workstation for Mac, iPad, and iPhone.
                     </p>
                     <div class="hero__badge">
                         <span class="hero__badge-dot"></span>
-                        In Development
+                        Now in Public Beta
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overview -->
+            <div class="section section--bordered">
+                <div class="container">
+                    <div class="overview">
+                        <div class="overview__main">
+                            <div class="section__label">What is Skene</div>
+                            <h2 class="section__title">A DAW, a modular studio, and a stage rig in one</h2>
+                            <p class="section__subtitle">
+                                One app for the whole show. Compose music, design sound, build reactive visuals, and run the lights &mdash; all in a single node-based workstation for Mac, iPad, and iPhone.
+                            </p>
+                        </div>
+                        <div class="overview__media">
+                            <img src="img/daw-view-mac.jpeg" alt="Skene running on Mac &mdash; DAW tracks with the analog synth and effects rack" class="overview__image zoomable">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -42,15 +60,35 @@
                     <div class="screenshots">
                         <div class="screenshot">
                             <div class="screenshot__frame">
-                                <img src="img/clip-view-iphone.jpeg" alt="Clip launcher view">
+                                <img src="img/clip-view-iphone.jpeg" alt="Clip launcher view" class="zoomable">
                             </div>
                             <div class="screenshot__caption">Clip Launcher</div>
                         </div>
                         <div class="screenshot">
                             <div class="screenshot__frame">
-                                <img src="img/daw-view-iphone.jpeg" alt="DAW tracks view">
+                                <img src="img/daw-view-iphone.jpeg" alt="DAW tracks view" class="zoomable">
                             </div>
                             <div class="screenshot__caption">DAW Tracks</div>
+                        </div>
+                        <div class="screenshot">
+                            <div class="screenshot__frame">
+                                <img src="img/fullscreen-piano-roll.jpeg" alt="Fullscreen piano roll editor" class="zoomable">
+                            </div>
+                            <div class="screenshot__caption">Piano Roll</div>
+                        </div>
+                    </div>
+                    <div class="shot-grid">
+                        <div class="shot">
+                            <img src="img/visual-pipeline.jpeg" alt="Node-based GPU visual pipeline" class="shot__img zoomable">
+                            <div class="screenshot__caption">Visualization Pipeline</div>
+                        </div>
+                        <div class="shot">
+                            <img src="img/dmx-channel-map.jpeg" alt="DMX fixture channel map" class="shot__img zoomable">
+                            <div class="screenshot__caption">DMX Channel Map</div>
+                        </div>
+                        <div class="shot">
+                            <img src="img/dmx-components.jpeg" alt="DMX lighting nodes in the graph" class="shot__img zoomable">
+                            <div class="screenshot__caption">DMX Lighting Nodes</div>
                         </div>
                     </div>
                 </div>
@@ -66,21 +104,21 @@
                     <div class="feature-grid">
 
                         <div class="feature-card">
-                            <div class="feature-card__title">AUv3 Instrument Hosting</div>
-                            <div class="feature-card__desc">Load any AUv3 instrument plugin directly into the node graph. Third-party synths and samplers become first-class nodes, patchable alongside Skene&rsquo;s built-in instruments.</div>
-                            <span class="feature-card__tag">AUv3</span>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-card__title">AUv3 Effect Hosting</div>
-                            <div class="feature-card__desc">Insert AUv3 audio effect plugins anywhere in the signal chain. Mix third-party processors with the built-in delay, saturator, compressor, and warmth nodes.</div>
-                            <span class="feature-card__tag">AUv3</span>
+                            <div class="feature-card__title">Node Graph at the Core</div>
+                            <div class="feature-card__desc">Patch instruments, effects, modulation, visuals, and even lighting as connected nodes. Every parameter is a typed port you can route anything into &mdash; LFOs, envelopes, audio levels &mdash; including feedback loops a linear rack can&rsquo;t express.</div>
+                            <span class="feature-card__tag">Node Graph</span>
                         </div>
 
                         <div class="feature-card">
                             <div class="feature-card__title">MIDI Tracks &amp; Piano Roll</div>
                             <div class="feature-card__desc">Full MIDI track workflow with a clip-based arranger and piano roll editor. MPE support adds per-note pitch bend, pressure, and Y-axis slide &mdash; draw curves directly in the piano roll to shape expression over time.</div>
+                            <img src="img/MPE-note-edit.jpeg" alt="Editing per-note MPE expression curves in the piano roll" class="feature-card__thumb zoomable">
                             <span class="feature-card__tag">MPE</span>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-card__title">Audio Tracks</div>
+                            <div class="feature-card__desc">Multi-track audio recording and playback with a clip-based arranger. Process tracks with the full built-in and AUv3 effects library, and set clips to loop or play through once.</div>
                         </div>
 
                         <div class="feature-card">
@@ -90,17 +128,13 @@
 
                         <div class="feature-card">
                             <div class="feature-card__title">Built-in Effects</div>
-                            <div class="feature-card__desc">Freeverb reverb, stereo delay, saturator, compressor, Warm waveshaper, Juno-style chorus, phaser, and a full filter library: Moog ladder, Roland TB-303, Korg 35, resonant, formant, and Butterworth high/low pass. All patchable as nodes.</div>
+                            <div class="feature-card__desc">Freeverb reverb, stereo delay, saturator, compressor, Warm waveshaper, Juno-style chorus, phaser, Neural Amp Modeler for guitar &amp; bass, and a full filter library: ladder, resonant, formant, and Butterworth high/low pass.</div>
                         </div>
 
                         <div class="feature-card">
-                            <div class="feature-card__title">Audio Tracks</div>
-                            <div class="feature-card__desc">Multi-track audio recording and playback with a clip-based arranger. Overdub mode, punch-in recording, live audio bounce to recorder, and iCloud sync across all your devices.</div>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-card__title">Node-Based Effect Stack</div>
-                            <div class="feature-card__desc">Build signal chains visually by connecting instruments and effects as nodes. Typed ports enforce signal compatibility &mdash; audio, MIDI, and control signals route cleanly through the graph.</div>
+                            <div class="feature-card__title">AUv3 Plugin Hosting</div>
+                            <div class="feature-card__desc">Load any AUv3 instrument or effect plugin directly into the node graph. Third-party synths, samplers, and processors become first-class nodes, patchable alongside Skene&rsquo;s built-in devices.</div>
+                            <span class="feature-card__tag">AUv3</span>
                         </div>
 
                         <div class="feature-card">
@@ -109,8 +143,31 @@
                         </div>
 
                         <div class="feature-card">
+                            <div class="feature-card__title">Live Performance &amp; Scenes</div>
+                            <div class="feature-card__desc">Launch clips and whole scenes on the beat from the Arranger and remix a set as you play. Loop sections live, toggle lights and effects, and add mutators on the fly &mdash; all mappable to your hardware controllers via MIDI Learn for hands-on performance.</div>
+                            <span class="feature-card__tag">Live</span>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-card__title">GPU Visuals</div>
+                            <div class="feature-card__desc">Metal-powered visuals that live in the same graph as your sound. Feed audio and MIDI into shaders, particle systems, and feedback effects for graphics that react to the music in real time.</div>
+                            <span class="feature-card__tag">Visuals</span>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-card__title">DMX512 Lighting</div>
+                            <div class="feature-card__desc">Drive stage lighting and DMX fixtures &mdash; LED bars, moving heads, haze &mdash; over Art-Net or USB. A light&rsquo;s parameters become node ports, so the same signals that shape your sound can shape the room.</div>
+                            <span class="feature-card__tag">DMX</span>
+                        </div>
+
+                        <div class="feature-card">
                             <div class="feature-card__title">Tuner &amp; Recorder</div>
                             <div class="feature-card__desc">Real-time pitch tuner showing detected note and cents deviation. Quick audio recorder for capturing ideas instantly, without stopping your session or leaving the current view.</div>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-card__title">Cross-Device &amp; iCloud Sync</div>
+                            <div class="feature-card__desc">One project, every device. Native on Mac, iPad, and iPhone, with iCloud sync so you can start a session on one device and pick it up on another exactly where you left off.</div>
                         </div>
 
                     </div>
@@ -131,19 +188,83 @@
                 </div>
             </div>
 
+            <!-- Controllers -->
+            <div class="section section--bordered">
+                <div class="container">
+                    <div class="section__label">Hardware</div>
+                    <h2 class="section__title">MIDI controller support<span class="section__badge section__badge--wip">Work in Progress</span></h2>
+                    <p class="section__subtitle">Map hardware to clips, transport, and parameters &mdash; with RGB pad feedback, encoder control, and screen or LED feedback on supported devices. Controller support is actively in development; here&rsquo;s what&rsquo;s mapped so far.</p>
+                    <div class="controller-feature">
+                        <img src="img/komplete-kontrol-s-mk2-support.jpeg" alt="Komplete Kontrol S MK2 integration with Skene" class="controller-feature__img zoomable">
+                    </div>
+                    <div class="controller-groups">
+                        <div class="controller-group">
+                            <div class="controller-group__brand">Ableton</div>
+                            <div class="controller-chips">
+                                <span class="controller-chip">Push 2</span>
+                            </div>
+                        </div>
+                        <div class="controller-group">
+                            <div class="controller-group__brand">Arturia</div>
+                            <div class="controller-chips">
+                                <span class="controller-chip">KeyLab 88 MkII</span>
+                                <span class="controller-chip">KeyLab Essential</span>
+                                <span class="controller-chip">MiniLab 3</span>
+                            </div>
+                        </div>
+                        <div class="controller-group">
+                            <div class="controller-group__brand">Native Instruments</div>
+                            <div class="controller-chips">
+                                <span class="controller-chip">Komplete Kontrol S MK2</span>
+                                <span class="controller-chip">Komplete Kontrol S MK1</span>
+                            </div>
+                        </div>
+                        <div class="controller-group">
+                            <div class="controller-group__brand">Novation</div>
+                            <div class="controller-chips">
+                                <span class="controller-chip">Launchpad Pro MK3</span>
+                                <span class="controller-chip">Launchpad Mini MK3</span>
+                                <span class="controller-chip">Launchkey MK4</span>
+                                <span class="controller-chip">Launchkey MK3</span>
+                                <span class="controller-chip">Launchkey MK2</span>
+                                <span class="controller-chip">Launchkey Mini MK2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Roadmap -->
             <div class="section section--bordered">
                 <div class="container">
                     <div class="section__label">Roadmap</div>
-                    <h2 class="section__title">What&rsquo;s coming</h2>
+                    <h2 class="section__title">Where it&rsquo;s headed</h2>
                     <div class="roadmap">
                         <div class="roadmap__item">
-                            <span class="roadmap__date">Q2 2026</span>
-                            <span class="roadmap__text">Public beta via TestFlight &mdash; iOS and macOS</span>
+                            <span class="roadmap__date">Now</span>
+                            <span class="roadmap__text">Public beta on TestFlight &mdash; iOS and macOS</span>
                         </div>
                         <div class="roadmap__item">
-                            <span class="roadmap__date">H2 2026</span>
+                            <span class="roadmap__date">Ongoing</span>
+                            <span class="roadmap__text">Expanding MIDI controller support and live-performance tools</span>
+                        </div>
+                        <div class="roadmap__item">
+                            <span class="roadmap__date">Later 2026</span>
                             <span class="roadmap__text">Full App Store release</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learn more -->
+            <div class="section section--bordered">
+                <div class="container">
+                    <div class="learn-more">
+                        <div class="section__label">Learn more</div>
+                        <h2 class="section__title">Want the full picture?</h2>
+                        <p class="section__subtitle">The user documentation walks through every view, instrument, effect, and node in detail &mdash; from getting started to DMX lighting setup.</p>
+                        <div class="link-row">
+                            <a href="/docs/" class="btn btn--primary">Read the docs</a>
                         </div>
                     </div>
                 </div>
@@ -160,5 +281,78 @@
             </div>
         </footer>
     </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+        <button class="lightbox__close" type="button" aria-label="Close">&times;</button>
+        <img class="lightbox__img" id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+
+            // Drive the gradient backdrop from scroll position (0..1).
+            function onScroll() {
+                var max = root.scrollHeight - window.innerHeight;
+                var sp = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+                root.style.setProperty('--sp', sp.toFixed(4));
+            }
+            var ticking = false;
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    requestAnimationFrame(function () { onScroll(); ticking = false; });
+                    ticking = true;
+                }
+            }, { passive: true });
+            onScroll();
+
+            // Reveal sections as they scroll into view (added via JS so no-JS users
+            // still see everything).
+            var targets = document.querySelectorAll('.hero, .section');
+            if ('IntersectionObserver' in window) {
+                targets.forEach(function (el) { el.classList.add('reveal'); });
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('is-visible');
+                            io.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+                targets.forEach(function (el) { io.observe(el); });
+            }
+
+            // Lightbox: click any .zoomable image to view it enlarged.
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            if (lightbox && lightboxImg) {
+                function openLightbox(src, alt) {
+                    lightboxImg.src = src;
+                    lightboxImg.alt = alt || '';
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeLightbox() {
+                    lightbox.classList.remove('is-open');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                    lightboxImg.src = '';
+                }
+                document.querySelectorAll('.zoomable').forEach(function (img) {
+                    img.addEventListener('click', function () {
+                        openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
+                    });
+                });
+                lightbox.addEventListener('click', closeLightbox);
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                        closeLightbox();
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
