@@ -1,0 +1,2256 @@
+# Skene Documentation — Full Text
+
+> Skene is one app for the whole show — compose music in the DAW, build live visuals, drive stage lighting and effects over DMX512, and perform it all live from the Arranger.
+
+Complete Skene user documentation as plain Markdown, concatenated for language models. Source: https://synthtropy.com/docs/
+
+---
+
+# Documentation
+
+Source: https://synthtropy.com/docs/
+
+> Skene is one app for the whole show — compose music in the DAW, build live visuals, drive stage lighting and effects over DMX512, and perform it all live from the Arranger.
+
+Welcome to the Skene user guide. **Skene** is a music and live-performance app
+for **iPhone, iPad, and macOS** that puts the whole show in one place: write the
+music, build the visuals, control the lights, and perform it all live — running
+together in real time.
+
+![The Skene DAW view on macOS — clip-based MIDI and audio tracks, an instrument rack, and the timeline.](daw-view.jpeg)
+
+## What Skene does
+
+- **Compose** in the [DAW view](daw-view/index.md) — a clip-based timeline of MIDI and audio tracks, each driven by its own instrument rack of built-in devices, [AUv3 plug-ins](reference/auv3-support.md), and effects. Full **[MPE](mpe/index.md)** expression lets every note bend, slide, and breathe.
+- **Build sound and visuals** in the [node graph](node-view/index.md) — patch instruments, effects, modulation, and **GPU visuals** as connected nodes, so your graphics react to the music in real time.
+- **Light the room** with [DMX512](node-view/dmx/index.md) — drive stage lighting and any DMX fixture (LED bars, moving heads, even a fog or haze machine) over Art-Net or USB, from the same graph that makes your sound and visuals.
+- **Perform live** in the [Arranger](arranger.md) — compose on the fly by launching your existing DAW tracks and **scenes** (we call them *skenes*) on the beat, remixing a set as you play.
+
+Everything is connected: an audio level can move a light, a MIDI note can fire a
+visual, and a scene change can take the whole show with it.
+
+> This guide is written page-by-page and grows over time. Some sections are fully
+> fleshed out; others are short notes that will expand. Work-in-progress areas
+> carry a **Work in progress** badge.
+
+## Start here
+
+- **[Getting Started](getting-started/index.md)** — the main views and how to move between them.
+- **[DAW View](daw-view/index.md)** — the core timeline: tracks, clips, the piano roll, and the instrument rack.
+- **[MPE](mpe/index.md)** — per-note pitch, slide, and pressure editing. Most iOS DAWs don't have this.
+- **[Node View](node-view/index.md)** — instruments, effects, modulation, visuals, and DMX lighting as connected nodes.
+
+## Also covered
+
+- **[Controllers](controllers/index.md)** — the on-screen piano, pads, and chord strips, plus hardware MIDI controllers.
+- **[Mixer](mixer.md)** and **[Arranger](arranger.md)** — mixing and live, scene-based arrangement.
+- **[Tools](tools/index.md)** — the audio recorder and pitch tuner.
+- **[Component Reference](components/index.md)** — every node, grouped by category.
+- **[Keyboard Shortcuts](reference/keyboard-shortcuts.md)** and **[AUv3 Support](reference/auv3-support.md)**.
+
+## Platforms
+
+Skene runs on iPhone, iPad, and Mac. Projects sync via iCloud, so you can start
+a session on one device and continue on another.
+
+---
+
+# Getting Started
+
+Source: https://synthtropy.com/docs/getting-started/
+
+> The five main views and how to switch between them.
+
+Skene is organised into a handful of **views**. Each view shows the same project
+from a different angle, and you can switch between them at any time — playback
+keeps running.
+
+## The main views
+
+- **Arranger** — launch and sequence clips across scenes for live performance and remixing. See [Arranger](../arranger.md).
+- **Tracks (DAW)** — the main timeline where you build songs from MIDI and audio clips. This is where most work happens. See [DAW View](../daw-view/index.md).
+- **Nodes** — the visual patching canvas for building instruments, effects, modulation, and visuals. See [Node View](../node-view/index.md).
+- **Mixer** — per-track faders, pan, and the selected track's processing rack. See [Mixer](../mixer.md).
+- **Controllers** — on-screen performance surfaces: piano, pads, and chord strips. See [Controllers](../controllers/index.md).
+
+## Switching views
+
+On a hardware keyboard (Mac, or iPad with a Magic/Bluetooth keyboard) the number
+keys jump straight to a view:
+
+| Key | View |
+| --- | --- |
+| <kbd>1</kbd> | Arranger |
+| <kbd>2</kbd> | Tracks (DAW) |
+| <kbd>3</kbd> | Nodes |
+| <kbd>4</kbd> | Mixer |
+| <kbd>5</kbd>, <kbd>6</kbd>, … | Custom controller views |
+
+Press <kbd>Space</kbd> to play or pause, and <kbd>Return</kbd> to replay from the
+start. The full list is on the [Keyboard Shortcuts](../reference/keyboard-shortcuts.md)
+page.
+
+> This section is a brief overview for now and will expand with a guided
+> first-project walkthrough.
+
+---
+
+# DAW View
+
+Source: https://synthtropy.com/docs/daw-view/
+
+> The main timeline where you build songs from MIDI and audio clips, each track driven by its own instrument rack.
+
+The **DAW view** (the *Tracks* view, <kbd>2</kbd>) is the heart of Skene. It's a
+clip-based timeline: each **track** holds **clips** arranged along the beat grid,
+and each track is powered by its own **instrument rack**. Press <kbd>2</kbd> from
+anywhere to return here.
+
+![The main DAW view with an Analog Synthesizer in the track rack. The slider on the left of the rack sets the track's MIDI velocity and input gain; the slider on the right is the track's main output volume.](daw-view.jpeg)
+
+## Layout
+
+The DAW view has two panes that work together:
+
+- The **track view** — your tracks stacked vertically, with their clips laid out along the timeline.
+- The **detail view** — opens below (or fullscreen) to edit the selected clip: the [piano roll](piano-roll.md) for MIDI, the waveform for audio, or the [drum editor](drum-tracks/index.md) for drum patterns.
+
+Move the selection between clips and tracks with the arrow keys, press
+<kbd>Cmd</kbd> + <kbd>↓</kbd> to drop into the detail view, and <kbd>Cmd</kbd> +
+<kbd>↑</kbd> to come back. See [Keyboard Shortcuts](../reference/keyboard-shortcuts.md).
+
+## The instrument rack
+
+Every track has a rack: an instrument (a built-in synth or sampler, or a hosted
+[AUv3 plug-in](../reference/auv3-support.md)) followed by any audio effects. The
+two faders flanking the rack are the most-used controls:
+
+- **Left fader** — the track's MIDI velocity / input gain.
+- **Right fader** — the track's main output volume.
+
+You can add effects to the rack inline — see [Rack &amp; Effects](rack-and-effects.md).
+
+## In this section
+
+- **[Creating Tracks](creating-tracks.md)** — add MIDI, audio, and drum tracks.
+- **[The Piano Roll](piano-roll.md)** — draw and arrange MIDI clips.
+- **[Clip Editing](clip-editing.md)** — repeat, resize, and loop clips.
+- **[MIDI Note Editing](midi-note-editing.md)** — tools, selection, velocity, and quantize.
+- **[Key &amp; Scale](key-and-scale.md)** — lock playing and editing to a musical scale.
+- **[Automation Curves](automation-curves.md)** — modwheel, sustain, and CC automation.
+- **[Rack &amp; Effects](rack-and-effects.md)** — build a per-track effect chain.
+- **[Audio Tracks](audio-tracks.md)** — record and play back audio.
+- **[Drum Tracks](drum-tracks/index.md)** — pattern-based drums with the drum synth and sampler.
+- **[Multi-Track View](multi-track-view.md)** — see every track at once.
+
+---
+
+# Creating Tracks
+
+Source: https://synthtropy.com/docs/daw-view/creating-tracks/
+
+> Add MIDI, audio, and drum tracks from the Create Track dialog.
+
+Add a new track with the **Create Track** dialog. On a hardware keyboard press
+<kbd>Shift</kbd> + <kbd>A</kbd>; otherwise use the add control in the DAW or
+Arranger.
+
+![The Create Track dialog used to add a new track to the DAW.](shot-260608-151809.png)
+
+## Track types
+
+The dialog lets you pick what kind of track to create:
+
+- **MIDI / instrument tracks** — a track driven by an instrument (a built-in synth or sampler, or a hosted [AUv3 instrument](../reference/auv3-support.md)). Edit its notes in the [piano roll](piano-roll.md).
+- **Audio tracks** — record and play back audio. See [Audio Tracks](audio-tracks.md).
+- **Drum tracks** — pattern-based drums using the built-in drum synth or drum sampler. See [Drum Tracks](drum-tracks/index.md).
+
+![Adding audio tracks to a project.](shot-260608-153711.png)
+
+Once a track exists, select it and start adding clips along the timeline, then
+open the [detail view](index.md#layout) to edit them.
+
+---
+
+# The Piano Roll
+
+Source: https://synthtropy.com/docs/daw-view/piano-roll/
+
+> Draw and arrange MIDI clips on the beat grid.
+
+MIDI tracks are edited in the **piano roll**. Select a MIDI clip and open the
+detail view (<kbd>Cmd</kbd> + <kbd>↓</kbd>) to see its notes laid out by pitch
+(vertical) over time (horizontal).
+
+![The piano roll showing a single-bar MIDI clip.](shot-260608-152024.png)
+
+## Working with clips
+
+- Create a clip on the timeline, then open it in the piano roll to add notes.
+- The grid follows the project's snap setting; notes land on the grid as you draw.
+- Edits take effect on the next bar during playback, so you can shape a part live without stopping.
+
+From here you can:
+
+- Resize, repeat, and loop the clip — see [Clip Editing](clip-editing.md).
+- Edit notes, selection, velocity, and quantize — see [MIDI Note Editing](midi-note-editing.md).
+- Constrain notes to a scale — see [Key &amp; Scale](key-and-scale.md).
+- Add expression with [MPE](../mpe/index.md).
+
+---
+
+# Clip Editing
+
+Source: https://synthtropy.com/docs/daw-view/clip-editing/
+
+> Repeat, resize, and loop clips by dragging their corners.
+
+Clips are resized and repeated by dragging their corners on the timeline.
+
+## Repeat a clip
+
+Drag from the **top-right corner** to repeat the clip. The pattern tiles forward
+for as many repetitions as you drag.
+
+![Repeating a clip by dragging its top-right corner.](shot-260608-152053.png)
+
+## Resize a clip
+
+Drag from the **bottom-right corner** to resize the clip, lengthening or
+shortening its content.
+
+![Resizing a clip by dragging its bottom-right corner.](shot-260608-152120.png)
+
+## Continuous (non-looping) automation
+
+Looped clips normally restart their content — including automation — every loop.
+Turn on **Continuous** mode to let [automation curves](automation-curves.md) run
+straight through the loop instead of resetting. This is how you add gradual
+variation and movement to a repeating part.
+
+![Turning on Continuous mode so automation curves keep evolving across a looped clip instead of restarting.](shot-260608-152759.png)
+
+---
+
+# MIDI Note Editing
+
+Source: https://synthtropy.com/docs/daw-view/midi-note-editing/
+
+> Draw, select, move, and quantize notes, and edit velocity across a selection.
+
+The piano roll provides the usual note-editing tools plus fast multi-note
+editing. Most actions have a keyboard shortcut — see
+[Keyboard Shortcuts](../reference/keyboard-shortcuts.md).
+
+## Editing notes
+
+- **Draw, select, and erase** notes with the editing tools.
+- **Select multiple notes** and drag them together. Holding the selection lock preserves the intervals of a chord while you move it.
+- **Duplicate** notes by holding <kbd>Alt</kbd> (Option) while dragging.
+- **Select all** notes in a clip with <kbd>Cmd</kbd> + <kbd>A</kbd>.
+
+## Velocity
+
+Adjust the velocity (dynamics) of one note or a whole selection at once, so you
+can shape the feel of a part in a single gesture.
+
+## Quantize
+
+Snap the selected notes to the current grid with <kbd>Q</kbd>.
+
+## Importing MIDI
+
+Standard MIDI files can be imported into a clip, with an option to quantize the
+imported notes to the grid.
+
+> This page will gain step-by-step images. For now, see the
+> [piano roll](piano-roll.md) overview.
+
+---
+
+# Key & Scale
+
+Source: https://synthtropy.com/docs/daw-view/key-and-scale/
+
+> Lock playing and editing to a musical key and scale, with in-scale notes highlighted.
+
+Skene can constrain everything you play and edit to a chosen **key and scale**
+— a fast way to stay in tune across the whole project, on the piano roll, the
+on-screen [controllers](../controllers/index.md), and hardware MIDI input alike.
+
+> This is an important feature that doesn't appear in the current screenshots;
+> images will be added.
+
+## Choosing a key and scale
+
+Pick a root note (the key) and a scale — major, minor, the modes, or chromatic.
+The choice applies globally to input and editing.
+
+## Scale filtering
+
+A **Filter Non-Scale Notes** toggle controls how strictly the scale is enforced:
+
+- **On** — only in-scale notes are playable; out-of-scale notes are blocked, so you can't hit a wrong note.
+- **Off** — every note plays, but out-of-scale notes are dimmed on the keyboard as a visual guide.
+
+In-scale and out-of-scale keys are highlighted differently on the keyboard and
+piano roll, so the current scale is always visible while you work.
+
+Scale filtering works together with [MPE](../mpe/index.md): you can keep full
+per-note expression while staying locked to a scale.
+
+---
+
+# Automation Curves
+
+Source: https://synthtropy.com/docs/daw-view/automation-curves/
+
+> Automate modwheel, sustain, and any CC over time with editable curves.
+
+Beyond notes, a clip can carry **automation curves** — global controller data
+that changes over time.
+
+![Editing global automation curves such as modwheel, sustain pedal, and CC values.](shot-260608-152702.png)
+
+## What you can automate
+
+- **Modwheel** (CC 1)
+- **Sustain pedal** (CC 64)
+- Any other **CC value**
+
+Draw the curve directly in the editor; the values are sent to the track's
+instrument as it plays. For per-note expression (pitch, slide, pressure) rather
+than channel-wide CCs, use [MPE](../mpe/index.md) instead.
+
+## Automation in loops
+
+By default a looped clip restarts its automation each loop. Turn on
+[Continuous mode](clip-editing.md#continuous-non-looping-automation) to let a
+curve evolve straight through the loop, adding variation to a repeating part.
+
+---
+
+# Rack & Effects
+
+Source: https://synthtropy.com/docs/daw-view/rack-and-effects/
+
+> Build a per-track effect chain by inserting effects between the instrument and the channel volume.
+
+Each track's **rack** runs its instrument into a chain of audio effects before
+the channel output. You build that chain right in the rack.
+
+## Adding an effect
+
+Tap the **plus (+)** button between the instrument and the channel volume control
+to insert an audio effect at that point in the chain.
+
+![The DAW rack view. The plus button between the instrument and the channel volume control inserts an audio effect.](shot-260608-153456.png)
+
+The effect is added into the signal path and can be reordered or removed.
+
+![A delay effect inserted into the track's signal chain.](shot-260608-153551.png)
+
+## Built-in and AUv3 effects
+
+The rack can host Skene's built-in effects — delay, reverb, saturator,
+compressor, chorus, phaser, and a library of filters — as well as third-party
+[AUv3 effects](../reference/auv3-support.md), freely mixed in the same chain. For
+deeper routing such as feedback loops and modulation, open the same signal in the
+[Node View](../node-view/index.md).
+
+---
+
+# Audio Tracks
+
+Source: https://synthtropy.com/docs/daw-view/audio-tracks/
+
+> Record and play back audio, and build an audio processing chain like a vocal channel.
+
+Alongside MIDI, Skene supports **audio tracks** for recording and playing back
+audio — vocals, guitars, or any input source — on the same clip-based timeline.
+
+## Building an audio chain
+
+An audio track runs its clips through a processing rack, just like an instrument
+track. A simple **vocal chain** might add EQ, compression, and reverb in series.
+
+![A simple audio track with a vocal processing chain added.](shot-260608-153751.png)
+
+## Recording
+
+Arm the track and record audio into it. Press <kbd>R</kbd> to start recording, or
+<kbd>Cmd</kbd> + <kbd>R</kbd> to record from the beginning.
+
+![Recording audio into a track.](shot-260608-153822.png)
+
+![Audio recording in progress.](shot-260608-153830.png)
+
+Captured audio becomes a clip you can trim and arrange on the timeline. See also
+the standalone [Audio Recorder](../tools/audio-recorder.md) for quickly capturing
+the master output or an input.
+
+---
+
+# Drum Tracks
+
+Source: https://synthtropy.com/docs/daw-view/drum-tracks/
+
+> Pattern-based drum tracks built from presets, with a complexity control for instant variation.
+
+**Drum tracks** are pattern-based: instead of drawing every hit, you start from a
+template and shape it. A drum track can be powered by the built-in drum
+synthesizer, the [drum sampler](drum-sampler.md), or a hosted
+[AUv3 plug-in](../../reference/auv3-support.md).
+
+## Drum presets
+
+Create a drum track from a **preset** to get a ready-made pattern and kit as a
+starting point.
+
+![Drum track presets create template-based drum tracks using the built-in drum synthesizer, the drum sampler, or an AUv3 plug-in.](shot-260608-152936.png)
+
+## Complexity
+
+Each drum clip has a **complexity** slider that varies the pattern — thinning it
+out or filling it in — so you can dial in the busyness of a part without editing
+individual notes.
+
+![The drum track complexity slider, which varies a single drum clip.](shot-260608-153253.png)
+
+## In this section
+
+- **[Drum Sampler](drum-sampler.md)** — load your own samples into drum slots.
+- **[Drum Editor](drum-editor.md)** — edit the pattern directly.
+
+---
+
+# Drum Sampler
+
+Source: https://synthtropy.com/docs/daw-view/drum-tracks/drum-sampler/
+
+> Load custom WAV samples into the drum sampler's slots.
+
+The **drum sampler** has a set of slots, each of which can load a custom sample
+from a WAV audio file. Build your own kit by dropping a sample into each slot,
+then drive it from a [drum track](index.md) pattern.
+
+![The drum sampler with slots for loading custom samples from WAV audio files.](shot-260608-153035.png)
+
+---
+
+# Drum Editor
+
+Source: https://synthtropy.com/docs/daw-view/drum-tracks/drum-editor/
+
+> Edit drum patterns directly in the drum track editor.
+
+The **drum track editor** is where you fine-tune a pattern hit by hit, on top of
+the preset and [complexity](index.md#complexity) controls.
+
+![The drum track editor.](shot-260608-153136.png)
+
+> This page will expand with details on editing hits, velocity, and per-step
+> options.
+
+---
+
+# Multi-Track View
+
+Source: https://synthtropy.com/docs/daw-view/multi-track-view/
+
+> See every track's clips together by selecting all tracks.
+
+When you select all tracks, the detail view shows **multiple tracks on the same
+view** at once — useful for getting an overview of a whole arrangement and for
+editing across tracks.
+
+![Viewing multiple tracks together when all tracks are selected.](shot-260608-154343.png)
+
+---
+
+# MPE
+
+Source: https://synthtropy.com/docs/mpe/
+
+> Per-note expression — pitch, slide, and pressure for every note independently. A standout feature most iOS DAWs don't offer.
+
+**MPE** (MIDI Polyphonic Expression) lets every note carry its own expression —
+its own pitch bend, its own timbre change, its own pressure — instead of one
+bend or modulation shared across the whole chord. It's what makes a part feel
+played rather than programmed, and **most iOS DAWs don't offer per-note MPE
+editing**. Skene does, both for live input and for drawing expression after the
+fact.
+
+![Editing per-note MPE expression in the piano roll (macOS).](MPE-note-edit.jpeg)
+
+## The three dimensions
+
+MPE gives each note three independent dimensions of control:
+
+- **X** — pitch (per-note pitch bend, for slides and vibrato)
+- **Y** — timbre (by default the filter cutoff, MIDI CC 74)
+- **Z** — pressure (by default mapped to velocity / dynamics)
+
+With these you can add pitch bends, vibrato, swells, and timbral movement to
+individual notes inside a chord.
+
+## Recording and editing
+
+You can perform MPE from a hardware MPE controller and from Skene's own
+[expressive pads](../controllers/pads.md), and you can **draw and edit** the
+expression curves per note directly in the piano roll — even tempo-synced
+vibrato — without hand-drawing every wiggle.
+
+## In this section
+
+- **[Track Expression Mode](track-expression-mode.md)** — switch a track between Standard and MPE.
+- **[Editing MPE Curves](editing-mpe-curves.md)** — draw per-note pitch, timbre, and pressure.
+
+MPE works together with [Key &amp; Scale](../daw-view/key-and-scale.md), so you
+can keep full expression while staying locked to a scale.
+
+---
+
+# Track Expression Mode
+
+Source: https://synthtropy.com/docs/mpe/track-expression-mode/
+
+> Switch a track between Standard and MPE expression in its settings.
+
+Each track chooses how it handles expression in its **track settings**. Open them
+by right-clicking the track's sidebar entry on Mac, or long-pressing it on iOS.
+
+![MIDI track settings, opened from the sidebar. They include the track name and the expression mode: Standard or MPE.](shot-260608-152156.png)
+
+## Standard vs MPE
+
+The settings include the track **name** and an **expression mode**:
+
+- **Standard** — conventional MIDI: pitch bend and CCs apply to the whole channel.
+- **MPE** — each note gets its own pitch, timbre, and pressure. Switch to MPE to unlock [per-note curve editing](editing-mpe-curves.md).
+
+---
+
+# Editing MPE Curves
+
+Source: https://synthtropy.com/docs/mpe/editing-mpe-curves/
+
+> Draw and edit per-note pitch, timbre, and pressure curves, including vibrato.
+
+With a track in [MPE mode](track-expression-mode.md), each note exposes editable
+**X, Y, and Z** curves so you can shape its expression over its lifetime.
+
+![In MPE mode you can edit the X, Y, and Z parameters for each note. By default X is pitch, Y is cutoff (CC 74), and Z is velocity. With MPE data points you add pitch bends and vibrato.](shot-260608-152336.png)
+
+## Default mappings
+
+- **X** → pitch
+- **Y** → cutoff (CC 74)
+- **Z** → velocity
+
+## Drawing curves
+
+Add data points to a note's curve to shape how that parameter moves while the
+note sounds.
+
+![Editing MPE expression curves on a note.](shot-260608-152520.png)
+
+A few points are enough to create musical motion — for example a pitch curve with
+two edit points and a vibrato applied to a single note within a chord.
+
+![An MPE pitch curve with two edit points and a vibrato effect on one note.](shot-260608-152558.png)
+
+Vibrato can be applied per point with a tempo-synced rate, so you don't have to
+draw each oscillation by hand.
+
+---
+
+# Node View
+
+Source: https://synthtropy.com/docs/node-view/
+
+> The visual patching canvas — connect instruments, effects, modulation, and visuals as typed nodes, including feedback loops the rack can't express.
+
+The **Node view** (<kbd>3</kbd>) is Skene's signal-routing canvas. Everything —
+instruments, effects, modulation sources, and visuals — is a **node** with typed
+input and output ports. You build sounds and visuals by dragging nodes and
+connecting their ports. Typed ports keep connections sane: audio meets audio,
+MIDI meets MIDI, control meets control.
+
+![The node view, used to build custom feedback loops and modulation routings.](node-view.jpeg)
+
+## Why use it
+
+The [track rack](../daw-view/rack-and-effects.md) handles a simple instrument →
+effects chain. The node view goes further: **custom feedback loops**, cross-modulation,
+and routings that a linear rack can't express. Patch an LFO or envelope into a
+filter cutoff, feed one effect's output back into another, or split and recombine
+signals freely.
+
+## Node categories
+
+Nodes are grouped by the kind of signal they work with:
+
+- **Audio** — synths, samplers, filters, and effects.
+- **MIDI** — generators and processors such as arpeggiators, chord generators, and the drum pattern engine.
+- **Visual** — GPU texture and shader processing for graphics. See [Visuals](visuals/index.md).
+- **DMX** — stage lighting control (Art-Net / USB) for fixtures.
+- **Tool** — utilities and modulation sources: LFOs, envelopes, step sequencers, and analyzers.
+
+Add a node with the **Add** menu (<kbd>A</kbd>); [AUv3 plug-ins](../reference/auv3-support.md)
+appear alongside the built-ins. For a node-by-node list with descriptions, see the
+**[Component Reference](../components/index.md)**.
+
+## In this section
+
+- **[Visuals](visuals/index.md)** — drive GPU graphics from your music and MIDI.
+- **[DMX Lighting](dmx/index.md)** — control stage lighting over Art-Net or USB.
+- **[Component Reference](../components/index.md)** — every node, grouped by category.
+
+---
+
+# Visuals
+
+Source: https://synthtropy.com/docs/node-view/visuals/
+
+> Build GPU visuals in the node graph and modulate them live from music and MIDI.
+
+Skene's node graph isn't just audio — it also drives **GPU visuals**. Visual
+nodes process textures and shaders, and because everything lives in the same
+graph, you can **modulate visual effects directly from your music and MIDI
+input**.
+
+![Using node graphs to modulate visual effects from music and MIDI input.](visual-pipeline.jpeg)
+
+Patch an audio level, an envelope, or incoming MIDI into a visual node's
+parameters to make graphics react to the performance in real time.
+
+## In this section
+
+- **[Video Sampler](video-sampler.md)** — play video as a source.
+- **[Video Effects](video-effects.md)** — process visuals with effect nodes.
+
+---
+
+# Video Sampler
+
+Source: https://synthtropy.com/docs/node-view/visuals/video-sampler/
+
+> Use the sampler with video as a visual source.
+
+The sampler supports **video**, letting you bring video clips into the visual
+graph as a source to be processed and modulated like any other visual node.
+
+![The sampler with video support.](shot-260608-154717.png)
+
+---
+
+# Video Effects
+
+Source: https://synthtropy.com/docs/node-view/visuals/video-effects/
+
+> Add video effects through the node view.
+
+Add **video effects** by patching effect nodes into the visual graph, the same
+way you build an audio chain — connect a source into an effect node and on to the
+output.
+
+![Adding video effects through the node view.](shot-260608-154936.png)
+
+Combine these with [music- and MIDI-driven modulation](index.md) to make the
+visuals move with the performance.
+
+---
+
+# DMX Lighting
+
+Source: https://synthtropy.com/docs/node-view/dmx/
+
+> Drive stage lighting from the node graph over Art-Net or USB, with configurable fixtures and a DMX channel map.
+
+Skene can control **stage lighting** straight from the node graph. A light's
+parameters become node ports, so you can drive fixtures from audio levels, MIDI,
+LFOs, or anything else in your patch — the same way you build sound and visuals.
+
+![The DMX controller.](shot-260608-172216.png)
+
+## How lighting leaves the app
+
+Skene speaks **DMX512**, the standard lighting-control protocol, over two
+transports:
+
+- **Art-Net** — DMX512 carried over your network (Wi-Fi or Ethernet) to an Art-Net node or interface. Available on **iOS and macOS**.
+- **Enttec Open DMX** — a USB-to-DMX interface that outputs one universe directly. Available on **macOS only** (iOS has no USB-serial access).
+
+> On iPhone and iPad, use Art-Net. On Mac you can use either Art-Net or an Enttec
+> Open DMX USB interface.
+
+## Setting it up
+
+1. **[Art-Net Setup](art-net.md)** — add and address an Art-Net device.
+2. **[Fixtures](fixtures.md)** — pick or build the fixture that matches your light.
+3. **[Channel Map](channel-map.md)** — lay your fixtures out across the DMX channels.
+4. **[Using DMX Nodes](using-dmx-nodes.md)** — drive fixture channels from the graph.
+
+See also the **[DMX components](../../components/dmx/index.md)** in the node
+reference.
+
+---
+
+# Art-Net Setup
+
+Source: https://synthtropy.com/docs/node-view/dmx/art-net/
+
+> Add an Art-Net device and choose unicast or broadcast delivery.
+
+**Art-Net** carries DMX512 over your local network, so a phone, tablet, or Mac
+can drive lighting interfaces (Art-Net nodes) without cabling the device itself.
+Add an Art-Net device to send a universe to it.
+
+![Adding an Art-Net device in unicast mode.](shot-260608-172312.png)
+
+## Unicast vs. broadcast
+
+Art-Net can deliver packets two ways:
+
+- **Unicast (recommended)** — sends each universe only to the specific node that needs it, addressed by its IP. This keeps network traffic low and predictable, which matters as you add universes and is especially important over **Wi-Fi**, where flooding the air with data causes dropouts and flicker. Use unicast for almost all setups.
+- **Broadcast / multicast** — sends to every device on the network at once. It's convenient when you don't know a node's IP or want quick, zero-config discovery, and it's fine for a **small, wired rig**. On a busy or wireless network it wastes bandwidth and gets unreliable.
+
+Rule of thumb: **unicast by default**; reach for broadcast only for quick tests
+or tiny setups where addressing each node by IP isn't worth it.
+
+![The Art-Net device added.](shot-260608-172353.png)
+
+Once the device is added, its universe is ready to receive your
+[fixtures](fixtures.md) and [channel map](channel-map.md).
+
+---
+
+# Fixtures
+
+Source: https://synthtropy.com/docs/node-view/dmx/fixtures/
+
+> Configure the fixture that matches your light, or build your own.
+
+A **fixture** describes one physical light: how many DMX channels it uses and
+what each channel does — dimmer, red, green, blue, pan, tilt, strobe, and so on.
+Add the fixture that matches your hardware so Skene knows how to talk to it.
+
+![The DMX fixture view, where you add your DMX device configuration.](shot-260608-172409.png)
+
+If your light isn't in the list, you can **build your own** device with the
+simple DMX editor: define its channels and what each one controls. Your custom
+fixture then behaves like any built-in one.
+
+Next, place your fixtures on the [channel map](channel-map.md).
+
+---
+
+# Channel Map
+
+Source: https://synthtropy.com/docs/node-view/dmx/channel-map/
+
+> Arrange your fixtures across the 512 channels of a DMX universe.
+
+The **channel map editor** lays your fixtures out across a DMX universe so each
+one lands on the right addresses.
+
+![The DMX512 channel map editor.](dmx-channel-map.jpeg)
+
+## How DMX512 works
+
+A DMX **universe** is a single stream of **512 channels**, each carrying an
+8-bit value from **0 to 255**. Every fixture is given a **start address** and
+occupies a contiguous block of channels from there:
+
+- A simple RGB light uses 3 channels (red, green, blue).
+- A dimmable RGB light might use 4 (dimmer + RGB).
+- A moving head can use 16 or more (pan, tilt, color, gobo, …).
+
+You assign each fixture a start address and make sure their channel ranges don't
+overlap — for example fixture A at channel 1 (uses 1–3), fixture B at channel 4
+(uses 4–6), and so on. The channel map editor is where you arrange that. When a
+rig needs more than 512 channels, add another universe.
+
+With fixtures mapped, drive their channels from the graph — see
+[Using DMX Nodes](using-dmx-nodes.md).
+
+---
+
+# Using DMX Nodes
+
+Source: https://synthtropy.com/docs/node-view/dmx/using-dmx-nodes/
+
+> Drive your fixtures' channels from the node graph with the DMX Fixture and Light Bar nodes.
+
+Once a fixture is mapped, control it from the node graph.
+
+![Using the DMX Fixture node to reach a fixture's channels; the Light Bar node drives a light-bar pattern.](shot-260608-173020.png)
+
+## DMX Fixture
+
+The **[DMX Fixture](../../components/dmx/dmx-fixture.md)** node exposes your
+configured fixture's **channels** as inputs. Patch any control signal — an audio
+level, an envelope, an LFO, a MIDI value — into a channel to drive that parameter
+live. (Each controllable parameter is a *channel*; that's the standard DMX term.)
+
+## Light Bar
+
+The **[Light Bar](../../components/dmx/light-bar.md)** node is built for LED
+**light-bar** fixtures. It shifts an RGB color through the bar's segments to
+create moving "progress-bar" patterns and chases, with configurable blend modes.
+
+Because these are ordinary nodes, you can modulate them from anything in the
+patch — making the lights react to the music in real time.
+
+---
+
+# Components
+
+Source: https://synthtropy.com/docs/components/
+
+> Reference for every node you can add to the graph, grouped by category.
+
+Components are Skene's building blocks — the **nodes** you add in the
+[Node View](../node-view/index.md) and in track [racks](../daw-view/rack-and-effects.md).
+Add one with the **Add** menu (<kbd>A</kbd>). Each has typed input and output
+ports so connections stay compatible. They fall into five categories:
+
+- **[Audio](audio/index.md)** — Instruments, effects, mixing, and audio I/O — the sound-making and sound-shaping nodes.
+- **[MIDI](midi/index.md)** — MIDI generators and processors that create or transform note and controller data.
+- **[Tool](tool/index.md)** — Modulation sources, logic, sensors, and utilities for wiring control signals through the graph.
+- **[Visual](visual/index.md)** — GPU texture, particle, and shader nodes for building visuals — many are experimental.
+- **[DMX](dmx/index.md)** — Stage-lighting control over DMX512 / Art-Net.
+
+> This reference lists the built-in description for each node. Detailed,
+> per-node documentation is being filled in over time.
+
+---
+
+# Audio
+
+Source: https://synthtropy.com/docs/components/audio/
+
+> Instruments, effects, mixing, and audio I/O — the sound-making and sound-shaping nodes.
+
+Instruments, effects, mixing, and audio I/O — the sound-making and sound-shaping nodes.
+
+- [Analog Synthesizer](analog-synthesizer.md) — Analog polyphonic synth with MPE support and vocoder.
+- [Sampler](sampler.md) — Plays video/audio files as a live instrument with cue points, MIDI control, and audio output.
+- [Drum Sampler](drum-sampler.md) — Sample-based drum playback that takes MIDI input.
+- [Drum Synthesizer](drum-synthesizer.md) — Analog drum synth in the style of the classic 70s drum machines.
+- [Guitar Amp](guitar-amp.md) — Neural Amp Modeler — load a .nam guitar/bass amp profile and an optional .wav cabinet IR. Includes a noise gate and 3-band tone stack.
+- [Audio Input](audio-input.md) — Captures audio from an input device such as a microphone or line-in. The audio can be connected to other nodes for effects processing.
+- [Audio Mixer](audio-mixer.md) — Combines multiple audio sources into a single output.
+- [Main Bus](main-bus.md) — Master output bus. When present, all audio routes into the Main Bus; insert post-bus effects on its output for program-wide processing.
+- [Parametric EQ](parametric-eq.md) — 6-band parametric equalizer with low/high pass, shelf, and bell filters.
+- [Reverb](reverb.md) — Classic Freeverb stereo reverb with room size, damping, wet/dry level, stereo width, and freeze mode.
+- [Delay](delay.md) — Stereo digital delay with adjustable time (1–2000 ms), feedback, and wet/dry mix.
+- [Chorus](chorus.md) — Juno-style stereo BBD chorus with two LFO modes, depth, and filter brightness.
+- [Saturator](saturator.md) — Harmonic saturator with an odd (tanh) and even (asymmetric) waveshaping blend, wet mix, and output gain trim.
+- [Compressor](compressor.md) — Feed-forward RMS compressor with soft knee, attack/release ballistics, input/output gain, and parallel mix.
+- [String Resonator](string-resonator.md) — String resonator effect for creating sympathetic resonances.
+- [Freeze & Stutter](freeze-and-stutter.md) — On trigger, freezes the last N ms of audio and loops it. Modulating the length while held produces beat-repeat and glitch effects.
+
+---
+
+# Analog Synthesizer
+
+Source: https://synthtropy.com/docs/components/audio/analog-synthesizer/
+
+> Analog polyphonic synth with MPE support and vocoder.
+
+Analog polyphonic synth with MPE support and vocoder.
+
+![Analog Synthesizer](analog-synth-component.jpeg)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Sampler
+
+Source: https://synthtropy.com/docs/components/audio/sampler/
+
+> Plays video/audio files as a live instrument with cue points, MIDI control, and audio output.
+
+Plays video/audio files as a live instrument with cue points, MIDI control, and audio output.
+
+![Sampler](shot-260608-164223.png)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Drum Sampler
+
+Source: https://synthtropy.com/docs/components/audio/drum-sampler/
+
+> Sample-based drum playback that takes MIDI input.
+
+Sample-based drum playback that takes MIDI input.
+
+![Drum Sampler](shot-260608-164255.png)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Drum Synthesizer
+
+Source: https://synthtropy.com/docs/components/audio/drum-synthesizer/
+
+> Analog drum synth in the style of the classic 70s drum machines.
+
+Analog drum synth in the style of the classic 70s drum machines.
+
+![Drum Synthesizer](drum-synthesizer.jpeg)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Guitar Amp
+
+Source: https://synthtropy.com/docs/components/audio/guitar-amp/
+
+> Neural Amp Modeler — load a .nam guitar/bass amp profile and an optional .wav cabinet IR. Includes a noise gate and 3-band tone stack.
+
+Neural Amp Modeler — load a .nam guitar/bass amp profile and an optional .wav cabinet IR. Includes a noise gate and 3-band tone stack.
+
+![Guitar Amp](shot-260608-164326.png)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Audio Input
+
+Source: https://synthtropy.com/docs/components/audio/audio-input/
+
+> Captures audio from an input device such as a microphone or line-in. The audio can be connected to other nodes for effects processing.
+
+Captures audio from an input device such as a microphone or line-in. The audio can be connected to other nodes for effects processing.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Audio Mixer
+
+Source: https://synthtropy.com/docs/components/audio/audio-mixer/
+
+> Combines multiple audio sources into a single output.
+
+Combines multiple audio sources into a single output.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Main Bus
+
+Source: https://synthtropy.com/docs/components/audio/main-bus/
+
+> Master output bus. When present, all audio routes into the Main Bus; insert post-bus effects on its output for program-wide processing.
+
+Master output bus. When present, all audio routes into the Main Bus; insert post-bus effects on its output for program-wide processing.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Parametric EQ
+
+Source: https://synthtropy.com/docs/components/audio/parametric-eq/
+
+> 6-band parametric equalizer with low/high pass, shelf, and bell filters.
+
+6-band parametric equalizer with low/high pass, shelf, and bell filters.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Reverb
+
+Source: https://synthtropy.com/docs/components/audio/reverb/
+
+> Classic Freeverb stereo reverb with room size, damping, wet/dry level, stereo width, and freeze mode.
+
+Classic Freeverb stereo reverb with room size, damping, wet/dry level, stereo width, and freeze mode.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Delay
+
+Source: https://synthtropy.com/docs/components/audio/delay/
+
+> Stereo digital delay with adjustable time (1–2000 ms), feedback, and wet/dry mix.
+
+Stereo digital delay with adjustable time (1–2000 ms), feedback, and wet/dry mix.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Chorus
+
+Source: https://synthtropy.com/docs/components/audio/chorus/
+
+> Juno-style stereo BBD chorus with two LFO modes, depth, and filter brightness.
+
+Juno-style stereo BBD chorus with two LFO modes, depth, and filter brightness.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Saturator
+
+Source: https://synthtropy.com/docs/components/audio/saturator/
+
+> Harmonic saturator with an odd (tanh) and even (asymmetric) waveshaping blend, wet mix, and output gain trim.
+
+Harmonic saturator with an odd (tanh) and even (asymmetric) waveshaping blend, wet mix, and output gain trim.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Compressor
+
+Source: https://synthtropy.com/docs/components/audio/compressor/
+
+> Feed-forward RMS compressor with soft knee, attack/release ballistics, input/output gain, and parallel mix.
+
+Feed-forward RMS compressor with soft knee, attack/release ballistics, input/output gain, and parallel mix.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# String Resonator
+
+Source: https://synthtropy.com/docs/components/audio/string-resonator/
+
+> String resonator effect for creating sympathetic resonances.
+
+String resonator effect for creating sympathetic resonances.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Freeze & Stutter
+
+Source: https://synthtropy.com/docs/components/audio/freeze-and-stutter/
+
+> On trigger, freezes the last N ms of audio and loops it. Modulating the length while held produces beat-repeat and glitch effects.
+
+On trigger, freezes the last N ms of audio and loops it. Modulating the length while held produces beat-repeat and glitch effects.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# MIDI
+
+Source: https://synthtropy.com/docs/components/midi/
+
+> MIDI generators and processors that create or transform note and controller data.
+
+MIDI generators and processors that create or transform note and controller data.
+
+- [Arpeggiator](arpeggiator.md) — Creates arpeggio patterns from a chord input.
+- [MIDI I/O](midi-io.md) — MIDI input / output. Send or receive MIDI messages to and from an external MIDI device. The same component can act as both input and output.
+- [MIDI Merge](midi-merge.md) — Merges two MIDI inputs with an adjustable mix control from -1.0 to 1.0.
+- [MIDI Transpose](midi-transpose.md) — Transposes MIDI notes by semitones and octaves.
+- [MIDI Learn](midi-learn.md) — Learns and converts MIDI signals to control values.
+- [HID Input](hid-input.md) — Connect to HID devices such as game controllers or Guitar Hero controllers. (macOS)
+
+---
+
+# Arpeggiator
+
+Source: https://synthtropy.com/docs/components/midi/arpeggiator/
+
+> Creates arpeggio patterns from a chord input.
+
+Creates arpeggio patterns from a chord input.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# MIDI I/O
+
+Source: https://synthtropy.com/docs/components/midi/midi-io/
+
+> MIDI input / output. Send or receive MIDI messages to and from an external MIDI device. The same component can act as both input and output.
+
+MIDI input / output. Send or receive MIDI messages to and from an external MIDI device. The same component can act as both input and output.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# MIDI Merge
+
+Source: https://synthtropy.com/docs/components/midi/midi-merge/
+
+> Merges two MIDI inputs with an adjustable mix control from -1.0 to 1.0.
+
+Merges two MIDI inputs with an adjustable mix control from -1.0 to 1.0.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# MIDI Transpose
+
+Source: https://synthtropy.com/docs/components/midi/midi-transpose/
+
+> Transposes MIDI notes by semitones and octaves.
+
+Transposes MIDI notes by semitones and octaves.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# MIDI Learn
+
+Source: https://synthtropy.com/docs/components/midi/midi-learn/
+
+> Learns and converts MIDI signals to control values.
+
+Learns and converts MIDI signals to control values.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# HID Input
+
+Source: https://synthtropy.com/docs/components/midi/hid-input/
+
+> Connect to HID devices such as game controllers or Guitar Hero controllers. (macOS)
+
+Connect to HID devices such as game controllers or Guitar Hero controllers. (macOS)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Tool
+
+Source: https://synthtropy.com/docs/components/tool/
+
+> Modulation sources, logic, sensors, and utilities for wiring control signals through the graph.
+
+Modulation sources, logic, sensors, and utilities for wiring control signals through the graph.
+
+- [Signal Generator](signal-generator.md) — Generates various waveforms (sine, square, and so on) as control signals.
+- [ADSR Envelope](adsr-envelope.md) — Applies envelope modulation (Attack, Decay, Sustain, Release) to input signals.
+- [Selector](selector.md) — Routes one of several inputs to a single output. The data type is auto-detected from the first connection. Cycle through inputs or pick one with per-input triggers; inputs grow as you connect them.
+- [Shift Register](shift-register.md) — Shifts data through N outputs on each trigger. The data type is auto-detected from the input.
+- [Project Control](project-control.md) — Controls project parameters such as tempo and playback state.
+- [HSL to RGB](hsl-to-rgb.md) — Converts hue, saturation, luma, and alpha into an RGBA color.
+- [Logic & Math Operators](logic-and-math.md) — A family of small logic and math nodes that combine or transform control signals.
+- [Accelerometer](accelerometer.md) — Reads device accelerometer data and outputs normalized values. (iOS)
+- [Flashlight](flashlight.md) — Controls the iPhone torch from float intensity and enabled inputs. (iOS)
+- [LiDAR Distance](lidar-distance.md) — Measures distance using the front TrueDepth sensor (0–1 m) or the back LiDAR sensor (0–5 m). Toggle the sensor via the context menu. (iOS)
+
+---
+
+# Signal Generator
+
+Source: https://synthtropy.com/docs/components/tool/signal-generator/
+
+> Generates various waveforms (sine, square, and so on) as control signals.
+
+Generates various waveforms (sine, square, and so on) as control signals.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# ADSR Envelope
+
+Source: https://synthtropy.com/docs/components/tool/adsr-envelope/
+
+> Applies envelope modulation (Attack, Decay, Sustain, Release) to input signals.
+
+Applies envelope modulation (Attack, Decay, Sustain, Release) to input signals.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Selector
+
+Source: https://synthtropy.com/docs/components/tool/selector/
+
+> Routes one of several inputs to a single output. The data type is auto-detected from the first connection. Cycle through inputs or pick one with per-input triggers; inputs grow as you connect them.
+
+Routes one of several inputs to a single output. The data type is auto-detected from the first connection. Cycle through inputs or pick one with per-input triggers; inputs grow as you connect them.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Shift Register
+
+Source: https://synthtropy.com/docs/components/tool/shift-register/
+
+> Shifts data through N outputs on each trigger. The data type is auto-detected from the input.
+
+Shifts data through N outputs on each trigger. The data type is auto-detected from the input.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Project Control
+
+Source: https://synthtropy.com/docs/components/tool/project-control/
+
+> Controls project parameters such as tempo and playback state.
+
+Controls project parameters such as tempo and playback state.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# HSL to RGB
+
+Source: https://synthtropy.com/docs/components/tool/hsl-to-rgb/
+
+> Converts hue, saturation, luma, and alpha into an RGBA color.
+
+Converts hue, saturation, luma, and alpha into an RGBA color.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Logic & Math Operators
+
+Source: https://synthtropy.com/docs/components/tool/logic-and-math/
+
+> A family of small logic and math nodes that combine or transform control signals.
+
+These small **Tool** nodes combine or transform control signals. Each appears
+as its own entry in the Add menu.
+
+| Node | What it does |
+| --- | --- |
+| **invert** | Inverts an input signal (1.0 becomes 0.0 and vice versa). |
+| **AND** | Outputs 1.0 only when all inputs are above 0.5. |
+| **OR** | Outputs 1.0 when any input is above 0.5. |
+| **LERP** | Smoothly interpolates between two values based on a control signal. |
+| **MIN** | Outputs the smaller of two input values. |
+| **MAX** | Outputs the larger of two input values. |
+| **MUL** | Multiplies two input values (A × B). |
+| **SUM** | Adds two input values (A + B). |
+| **SUB** | Subtracts B from A (A − B). |
+| **Flip-Flop** | Toggles between 0 and 1 each time the input crosses 0.5. |
+| **Falling Edge** | Outputs a brief pulse (1.0) when the input transitions from high to low. |
+
+---
+
+# Accelerometer
+
+Source: https://synthtropy.com/docs/components/tool/accelerometer/
+
+> Reads device accelerometer data and outputs normalized values. (iOS)
+
+Reads device accelerometer data and outputs normalized values. (iOS)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Flashlight
+
+Source: https://synthtropy.com/docs/components/tool/flashlight/
+
+> Controls the iPhone torch from float intensity and enabled inputs. (iOS)
+
+Controls the iPhone torch from float intensity and enabled inputs. (iOS)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# LiDAR Distance
+
+Source: https://synthtropy.com/docs/components/tool/lidar-distance/
+
+> Measures distance using the front TrueDepth sensor (0–1 m) or the back LiDAR sensor (0–5 m). Toggle the sensor via the context menu. (iOS)
+
+Measures distance using the front TrueDepth sensor (0–1 m) or the back LiDAR sensor (0–5 m). Toggle the sensor via the context menu. (iOS)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Visual
+
+Source: https://synthtropy.com/docs/components/visual/
+
+> GPU texture, particle, and shader nodes for building visuals — many are experimental.
+
+GPU texture, particle, and shader nodes for building visuals — many are experimental.
+
+- [Particle Emitter](particle-emitter.md) — Emits particle spawn buffers for the node-based particle pipeline.
+- [Particle Emitter from Image](particle-emitter-from-image.md) — Emits particles based on an image and an optional SDF mask.
+- [Particle System](particle-system.md) — Owns particle buffers and manages capacity.
+- [Particle Physics](particle-physics.md) — Applies gravity, damping, and sink forces to particle motion (lifetime is owned by the emitter).
+- [Particle Transform](particle-transform.md) — Applies position/size/velocity transforms to particle buffers with optional group filtering.
+- [Particle Sink](particle-sink.md) — Defines a gravity sink or pusher for particle physics.
+- [Point Cloud From Model](point-cloud-from-model.md) — Generates a static point cloud from a mesh.
+- [SDF Composite (Particles)](sdf-composite-particles.md) — Composites particle buffers into an SDF texture.
+- [Particle Renderer](particle-renderer.md) — Consumes particle buffers for rendering.
+- [TrueDepth Camera](truedepth-camera.md) — Captures the TrueDepth camera depth map as a 32-bit float texture. (iOS)
+- [Camera Stream](camera-stream.md) — Captures a live camera feed and outputs it as a GPU texture.
+- [Mask Image](mask-image.md) — Applies a mask texture to an input image and outputs RGBA.
+- [Person Segmentation](person-segmentation.md) — Uses Apple Vision ML to separate a person from the background and output a grayscale mask texture.
+- [Noise Generator](noise-generator.md) — Generates procedural noise textures (single channel).
+- [Video Mixer](video-mixer.md) — Blends two textures with selectable modes.
+- [View Preview](view-preview.md) — Renders a controller view into a GPU texture output.
+- [DAW Post Process](daw-post-process.md) — Routes the renderer background and post-process textures through the node graph.
+- [PIP Overlay](pip-overlay.md) — Displays an incoming texture as a picture-in-picture overlay in any screen corner.
+- [Image Loader](image-loader.md) — Loads an image into a GPU texture buffer.
+- [SDF Processor](sdf-processor.md) — Processes an input texture into SDF-like output.
+- [SDF Render (Texture)](sdf-render-texture.md) — Renders an SDF texture into a new RGBA output texture.
+- [SDF Gravity Sink](sdf-gravity-sink.md) — Applies SDF gravity forces to GPU particles.
+- [Image Distortion](image-distortion.md) — Applies wave and ripple distortion to a texture.
+- [MPS Blur](mps-blur.md) — Applies Gaussian blur to a texture using Metal Performance Shaders.
+- [Luma Threshold](luma-threshold.md) — Extracts bright areas based on a luminance threshold. Use with MPS Blur for bloom effects.
+- [Texture Feedback](texture-feedback.md) — Accumulates previous frames with decay to create light trails.
+- [Scanlines](scanlines.md) — CRT-style scanlines with subtle noise.
+- [Pixelate](pixelate.md) — Applies controllable pixelation to a texture.
+- [Chromatic Aberration](chromatic-aberration.md) — Separates color channels for RGB or CMYK chromatic fringing.
+- [Color Manipulation](color-manipulation.md) — Adjusts hue, brightness, saturation, and contrast with an optional single-hue colorize mode.
+- [Texture Generator](texture-generator.md) — Generates a color-gradient texture from manual size controls or an input texture's dimensions.
+- [Text Render](text-render.md) — Renders Unicode text into a 1024×512 texture using the system font.
+- [Dither Render](dither-render.md) — Applies Bayer ordered dithering to a texture for stylized output.
+
+---
+
+# Particle Emitter
+
+Source: https://synthtropy.com/docs/components/visual/particle-emitter/
+
+> Emits particle spawn buffers for the node-based particle pipeline.
+
+Emits particle spawn buffers for the node-based particle pipeline.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Particle Emitter from Image
+
+Source: https://synthtropy.com/docs/components/visual/particle-emitter-from-image/
+
+> Emits particles based on an image and an optional SDF mask.
+
+Emits particles based on an image and an optional SDF mask.
+
+The **Static** toggle (top shelf) switches between two modes:
+
+- **Emitting** (default): continuously spawns short-lived particles from the
+  image. The node ages and recycles its own buffer, so particles fade out and
+  free up space even without a Particle Physics node downstream. `spawnRate`,
+  `life`, and `maxParticles` shape the stream.
+- **Static**: spawns a fixed cloud of motionless, persistent particles from the
+  image once (re-seeded when the image or a shaping parameter changes). Use
+  `count` to set how many particles sample the image. There is no lifetime and
+  no ongoing emission — much like the Line Emitter.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Particle System
+
+Source: https://synthtropy.com/docs/components/visual/particle-system/
+
+> Owns particle buffers and manages capacity.
+
+Owns particle buffers and manages capacity.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Particle Physics
+
+Source: https://synthtropy.com/docs/components/visual/particle-physics/
+
+> Applies gravity, damping, and sink forces to particle motion.
+
+Applies gravity, damping, and sink forces to particle motion.
+
+Particle **lifetime** is owned by the emitter (it ages and recycles its own
+buffer), so Particle Physics is optional — connect it only when you want the
+cloud to move. It moves the live particles each frame and leaves aging to the
+emitter.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Particle Transform
+
+Source: https://synthtropy.com/docs/components/visual/particle-transform/
+
+> Applies position/size/velocity transforms to particle buffers with optional group filtering.
+
+Applies position/size/velocity transforms to particle buffers with optional group filtering.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Particle Sink
+
+Source: https://synthtropy.com/docs/components/visual/particle-sink/
+
+> Defines a gravity sink or pusher for particle physics.
+
+Defines a gravity sink or pusher for particle physics.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Point Cloud From Model
+
+Source: https://synthtropy.com/docs/components/visual/point-cloud-from-model/
+
+> Generates a static point cloud from a mesh.
+
+Generates a static point cloud from a mesh.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# SDF Composite (Particles)
+
+Source: https://synthtropy.com/docs/components/visual/sdf-composite-particles/
+
+> Composites particle buffers into an SDF texture.
+
+Composites particle buffers into an SDF texture.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Particle Renderer
+
+Source: https://synthtropy.com/docs/components/visual/particle-renderer/
+
+> Consumes particle buffers for rendering.
+
+Consumes particle buffers for rendering.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# TrueDepth Camera
+
+Source: https://synthtropy.com/docs/components/visual/truedepth-camera/
+
+> Captures the TrueDepth camera depth map as a 32-bit float texture. (iOS)
+
+Captures the TrueDepth camera depth map as a 32-bit float texture. (iOS)
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Camera Stream
+
+Source: https://synthtropy.com/docs/components/visual/camera-stream/
+
+> Captures a live camera feed and outputs it as a GPU texture.
+
+Captures a live camera feed and outputs it as a GPU texture.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Mask Image
+
+Source: https://synthtropy.com/docs/components/visual/mask-image/
+
+> Applies a mask texture to an input image and outputs RGBA.
+
+Applies a mask texture to an input image and outputs RGBA.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Person Segmentation
+
+Source: https://synthtropy.com/docs/components/visual/person-segmentation/
+
+> Uses Apple Vision ML to separate a person from the background and output a grayscale mask texture.
+
+Uses Apple Vision ML to separate a person from the background and output a grayscale mask texture.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Noise Generator
+
+Source: https://synthtropy.com/docs/components/visual/noise-generator/
+
+> Generates procedural noise textures (single channel).
+
+Generates procedural noise textures (single channel).
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Video Mixer
+
+Source: https://synthtropy.com/docs/components/visual/video-mixer/
+
+> Blends two textures with selectable modes.
+
+Blends two textures with selectable modes.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# View Preview
+
+Source: https://synthtropy.com/docs/components/visual/view-preview/
+
+> Renders a controller view into a GPU texture output.
+
+Renders a controller view into a GPU texture output.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# DAW Post Process
+
+Source: https://synthtropy.com/docs/components/visual/daw-post-process/
+
+> Routes the renderer background and post-process textures through the node graph.
+
+Routes the renderer background and post-process textures through the node graph.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# PIP Overlay
+
+Source: https://synthtropy.com/docs/components/visual/pip-overlay/
+
+> Displays an incoming texture as a picture-in-picture overlay in any screen corner.
+
+Displays an incoming texture as a picture-in-picture overlay in any screen corner.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Image Loader
+
+Source: https://synthtropy.com/docs/components/visual/image-loader/
+
+> Loads an image into a GPU texture buffer.
+
+Loads an image into a GPU texture buffer.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# SDF Processor
+
+Source: https://synthtropy.com/docs/components/visual/sdf-processor/
+
+> Processes an input texture into SDF-like output.
+
+Processes an input texture into SDF-like output.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# SDF Render (Texture)
+
+Source: https://synthtropy.com/docs/components/visual/sdf-render-texture/
+
+> Renders an SDF texture into a new RGBA output texture.
+
+Renders an SDF texture into a new RGBA output texture.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# SDF Gravity Sink
+
+Source: https://synthtropy.com/docs/components/visual/sdf-gravity-sink/
+
+> Applies SDF gravity forces to GPU particles.
+
+Applies SDF gravity forces to GPU particles.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Image Distortion
+
+Source: https://synthtropy.com/docs/components/visual/image-distortion/
+
+> Applies wave and ripple distortion to a texture.
+
+Applies wave and ripple distortion to a texture.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# MPS Blur
+
+Source: https://synthtropy.com/docs/components/visual/mps-blur/
+
+> Applies Gaussian blur to a texture using Metal Performance Shaders.
+
+Applies Gaussian blur to a texture using Metal Performance Shaders.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Luma Threshold
+
+Source: https://synthtropy.com/docs/components/visual/luma-threshold/
+
+> Extracts bright areas based on a luminance threshold. Use with MPS Blur for bloom effects.
+
+Extracts bright areas based on a luminance threshold. Use with MPS Blur for bloom effects.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Texture Feedback
+
+Source: https://synthtropy.com/docs/components/visual/texture-feedback/
+
+> Accumulates previous frames with decay to create light trails.
+
+Accumulates previous frames with decay to create light trails.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Scanlines
+
+Source: https://synthtropy.com/docs/components/visual/scanlines/
+
+> CRT-style scanlines with subtle noise.
+
+CRT-style scanlines with subtle noise.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Pixelate
+
+Source: https://synthtropy.com/docs/components/visual/pixelate/
+
+> Applies controllable pixelation to a texture.
+
+Applies controllable pixelation to a texture.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Chromatic Aberration
+
+Source: https://synthtropy.com/docs/components/visual/chromatic-aberration/
+
+> Separates color channels for RGB or CMYK chromatic fringing.
+
+Separates color channels for RGB or CMYK chromatic fringing.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Color Manipulation
+
+Source: https://synthtropy.com/docs/components/visual/color-manipulation/
+
+> Adjusts hue, brightness, saturation, and contrast with an optional single-hue colorize mode.
+
+Adjusts hue, brightness, saturation, and contrast with an optional single-hue colorize mode.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Texture Generator
+
+Source: https://synthtropy.com/docs/components/visual/texture-generator/
+
+> Generates a color-gradient texture from manual size controls or an input texture's dimensions.
+
+Generates a color-gradient texture from manual size controls or an input texture's dimensions.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Text Render
+
+Source: https://synthtropy.com/docs/components/visual/text-render/
+
+> Renders Unicode text into a 1024×512 texture using the system font.
+
+Renders Unicode text into a 1024×512 texture using the system font.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Dither Render
+
+Source: https://synthtropy.com/docs/components/visual/dither-render/
+
+> Applies Bayer ordered dithering to a texture for stylized output.
+
+Applies Bayer ordered dithering to a texture for stylized output.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# DMX
+
+Source: https://synthtropy.com/docs/components/dmx/
+
+> Stage-lighting control over DMX512 / Art-Net.
+
+Stage-lighting control over DMX512 / Art-Net.
+
+![DMX components in the node view — the DMX Fixture and Light Bar nodes driving stage lighting (macOS).](dmx-components.jpeg)
+
+- [DMX Fixture](dmx-fixture.md) — Sends DMX512 / Art-Net lighting control from float inputs.
+- [Light Bar](light-bar.md) — Shift-register LED bar for DMX lightbars. Shifts an RGB color through N output slots with configurable blend modes.
+
+---
+
+# DMX Fixture
+
+Source: https://synthtropy.com/docs/components/dmx/dmx-fixture/
+
+> Sends DMX512 / Art-Net lighting control from float inputs.
+
+Sends DMX512 / Art-Net lighting control from float inputs.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Light Bar
+
+Source: https://synthtropy.com/docs/components/dmx/light-bar/
+
+> Shift-register LED bar for DMX lightbars. Shifts an RGB color through N output slots with configurable blend modes.
+
+Shift-register LED bar for DMX lightbars. Shifts an RGB color through N output slots with configurable blend modes.
+
+> Detailed documentation for this node is coming. This page currently shows the built-in component description.
+
+---
+
+# Controllers
+
+Source: https://synthtropy.com/docs/controllers/
+
+> The surfaces you play Skene with — on-screen piano, pads, and chord strips, plus hardware MIDI controllers.
+
+**Controllers** are how you play Skene — the surfaces that send notes and
+performance data to the selected track. They come in two forms that serve the
+same purpose; the only difference is where they live:
+
+- **On-screen controllers** — touch surfaces you add as controller views and
+  reach with the number keys (<kbd>5</kbd>, <kbd>6</kbd>, …): the virtual piano,
+  expressive pads, and chord strips. Always available, no hardware needed.
+- **Hardware controllers** — physical MIDI keyboards and pad grids. Any MIDI
+  device plays notes; some have dedicated integration (transport, LEDs, node and
+  track selection).
+
+Whichever you use, it sends notes to the selected track, so it works with the
+track's instrument, [scale settings](../daw-view/key-and-scale.md), and
+[MPE](../mpe/index.md).
+
+## In this section
+
+- **[Virtual Piano](virtual-piano.md)** — the on-screen keyboard, and playing notes from the computer keyboard.
+- **[Pads](pads.md)** — expressive pads with MPE pitch bend.
+- **[Chord Pads](chord-pads.md)** — one-touch chords with a built-in arpeggiator.
+- **[Hardware Controllers](hardware-controllers.md)** — supported MIDI keyboards and pad grids, and their mappings.
+
+> This overview will expand with details on adding, configuring, and splitting
+> controller views.
+
+---
+
+# Virtual Piano
+
+Source: https://synthtropy.com/docs/controllers/virtual-piano/
+
+> The on-screen piano, and using the computer keyboard as a MIDI input.
+
+The **virtual piano** is an on-screen keyboard for playing the selected track's
+instrument.
+
+![The on-screen virtual piano for playing the selected track's instrument.](shot-260608-153927.png)
+
+## Computer keyboard as MIDI
+
+On a hardware keyboard you can also turn the **computer keyboard into a MIDI
+input** with <kbd>Cmd</kbd> + <kbd>M</kbd>. The letter and number keys then play
+notes in a piano layout, and <kbd>-</kbd> / <kbd>+</kbd> shift the octave down and
+up. While this mode is active, unmapped keys are ignored so they don't trigger
+their usual shortcuts. See [Keyboard Shortcuts](../reference/keyboard-shortcuts.md).
+
+---
+
+# Pads
+
+Source: https://synthtropy.com/docs/controllers/pads/
+
+> Expressive pads with MPE pitch bend.
+
+The **pads** controller is a grid for finger drumming and expressive playing. The
+pads support **MPE pitch bend**, so sliding on a pad bends that note
+individually — a quick way to add [expression](../mpe/index.md) without a
+hardware MPE controller.
+
+![Pads with MPE pitch bend.](shot-260608-154106.png)
+
+---
+
+# Chord Pads
+
+Source: https://synthtropy.com/docs/controllers/chord-pads/
+
+> One-touch chords with a built-in arpeggiator.
+
+**Chord pads** play full chords from a single touch, with a built-in **arpeggio
+mode** that rolls the chord out into a pattern instead of playing it as a block.
+
+![Chord pads with built-in arpeggio mode.](shot-260608-154148.png)
+
+---
+
+# Hardware Controllers
+
+Source: https://synthtropy.com/docs/controllers/hardware-controllers/
+
+> Physical MIDI keyboards and pad grids — and the ones with dedicated transport, LED, and selection integration.
+
+Hardware controllers serve the same purpose as the on-screen surfaces
+([Virtual Piano](virtual-piano.md), [Pads](pads.md), [Chord Pads](chord-pads.md)):
+they're how you play and drive Skene. The difference is just where they live — a
+physical keyboard or pad grid instead of the screen. Like the on-screen
+surfaces, they send notes to the selected track, so they work with the track's
+instrument, [scale settings](../daw-view/key-and-scale.md), and
+[MPE](../mpe/index.md).
+
+Any Core MIDI device works for notes and CC. On top of that, Skene ships
+**dedicated integration profiles** for a number of controllers, adding
+hardware-specific behavior: transport buttons, LED feedback, node and track
+selection, and on-screen menu navigation.
+
+> **Hardware controller support is a work in progress.** Mappings, LED feedback,
+> and the list of supported devices are still expanding. Some recognized
+> controllers are only partially mapped, and button assignments may change
+> between releases. If your controller isn't listed, it still works as a standard
+> MIDI device.
+
+## What the mappings do
+
+Controllers drive Skene through a set of named actions. The most common ones:
+
+| Action | What it does |
+| --- | --- |
+| Play / Play-Pause | Start playback, or toggle play/pause |
+| Stop | Stop playback |
+| Record | Toggle recording |
+| Return to start | Jump the playhead back to the beginning |
+| Loop | Toggle the loop on/off |
+| Metronome | Toggle the metronome on/off |
+| Pre-count | Toggle the recording count-in |
+| Undo / Redo | Undo or redo the last edit |
+| Save | Save the current project |
+| Add node | Open the node creator |
+| Delete | Delete the current selection |
+| DAW navigation | Move the clip/track selection (left / right / up / down) |
+| Focus toggle | Switch focus between the track list and the clip detail (piano roll) |
+| Menu navigation | Move the cursor / confirm / back in on-screen menus and pop-ups |
+| Node-select slots | Store and recall nodes on dedicated pads (short press recalls, long press stores) |
+| Context-select slots | Recall context / parameter pages |
+| App-view switch | Switch between Arranger, DAW, Nodes, Mixer, and controller views |
+| DAW track select | Select a track directly from a pad or button |
+| Surface lock | Lock the control surface to the current target |
+| Cycle node / group | Step through the controlled node or parameter group |
+| Octave up / down | Shift the keyboard octave |
+| Arp note rate | Set the arpeggiator / note rate |
+
+On controllers with addressable LEDs, transport and status buttons reflect the
+current state — for example the **Metronome** key is bright when the metronome is
+on and dim when it is off on the Komplete Kontrol S MK2 and Launchpad Pro MK3.
+
+## Supported controllers
+
+| Controller | Connection | Highlights |
+| --- | --- | --- |
+| Arturia KeyLab 88 MkII | USB MIDI | Recognized — keyboard, pads, encoders (transport/control buttons not yet mapped) |
+| Arturia KeyLab Essential | USB MIDI | Transport, loop, metronome pre-count, save/undo, DAW navigation |
+| Arturia MiniLab 3 | USB MIDI | Transport, DAW navigation, focus toggle, pads |
+| Komplete Kontrol S MK1 | USB (HID) | Transport, menu navigation, group cycling, key LEDs |
+| Komplete Kontrol S MK2 | USB (HID) | Transport, metronome (LED feedback), node cycling, 4D navigation, key LEDs + displays |
+| Novation Launchkey Mini MK2 | USB MIDI | Transport, undo, pads |
+| Novation Launchkey MK2 | USB MIDI | Transport, undo, node-select slots, add node, pads |
+| Novation Launchkey MK3 | USB MIDI | Transport, DAW track select, surface lock, pads |
+| Novation Launchkey MK4 | USB MIDI | Transport, DAW track select, undo, pads |
+| Novation Launchpad Mini MK3 | USB MIDI | Node-select slots, context slots, surface lock, 8×8 pad grid |
+| Novation Launchpad Pro MK3 | USB MIDI | Transport, cursor navigation, metronome (LED feedback), node/context slots, app-view switch, 8×8 pad grid |
+| Ableton Push 2 | USB MIDI | Transport, node-select slots, DAW track select, arp rate, octave shift, RGB pad grid |
+
+## Per-device mappings
+
+### Arturia KeyLab 88 MkII
+
+Recognized as a controller, but its transport and control buttons are **not yet
+mapped** — this profile is a work in progress. The keyboard, pads, and encoders
+work as standard MIDI input; transport and function-button control is planned.
+
+### Arturia KeyLab Essential
+
+- **Transport:** Play, Stop, Record, Return to start (Rewind)
+- **Editing:** Save, Undo
+- **Loop / metronome:** Loop, Metronome (pre-count)
+- **DAW navigation:** Left, Right
+
+### Arturia MiniLab 3
+
+- **Transport:** Play, Stop, Record
+- **Loop:** Loop
+- **DAW navigation:** Left/Right (Rewind / Fast Forward), Up/Down (Track Previous / Next)
+- **Focus:** Main encoder click toggles track / detail focus
+- **Pads** for note and clip input
+
+### Komplete Kontrol S MK1
+
+Connects over HID for transport buttons and key LEDs.
+
+- **Transport:** Play, Stop, Record, Loop, Return to start
+- **Menu navigation:** Up, Down, Left, Right, Enter, Back
+- **Group cycling:** Display Left / Right cycle the controlled parameter group
+- **Key LEDs** reflect playback of the selected track
+
+### Komplete Kontrol S MK2
+
+Connects over HID for transport buttons, key LEDs, and the displays.
+
+- **Transport:** Play, Stop, Record, Loop
+- **Metronome:** Metro toggles the metronome — the key LED is bright when on, dim when off
+- **Node cycling:** Left / Right step through the controlled node
+- **4D encoder:** Up, Down, Left, Right, and press for menu navigation
+- **Key LEDs + displays** reflect playback and node parameters
+
+### Novation Launchkey Mini MK2
+
+- **Transport:** Play, Stop, Record, Return to start (Rewind)
+- **Editing:** Undo (Track Right)
+- **Pads** for note and clip input
+
+### Novation Launchkey MK2
+
+- **Transport:** Play, Stop, Record, Return to start (Rewind)
+- **Editing:** Undo (Track Right), Add node (New)
+- **Node-select slots:** 8 pads store and recall nodes
+- **Pads** for note and clip input
+
+### Novation Launchkey MK3
+
+- **Transport:** Play, Stop, Record
+- **Editing:** Undo (Track Right)
+- **Surface lock:** Track Left
+- **DAW track select:** 8 track-select buttons
+- **Pads** for note and clip input
+
+### Novation Launchkey MK4
+
+- **Transport:** Play, Stop, Record
+- **Editing:** Undo
+- **DAW track select:** 8 track-select buttons
+- **Confirm:** Select / Enter
+- **Pads** for note and clip input
+
+### Novation Launchpad Mini MK3
+
+- **Node-select slots:** 8 pads store and recall nodes
+- **Context-select slots:** 8 pads recall context pages
+- **Surface lock**
+- **8×8 RGB pad grid** for note, clip, and grid input
+
+### Novation Launchpad Pro MK3
+
+- **Transport:** Play, Record
+- **Editing:** Undo, Redo
+- **Cursor navigation:** Up, Down, Left, Right, Select
+- **Metronome:** dedicated key toggles the metronome — the LED reflects on/off
+- **Node-select slots** and **Context-select slots**
+- **App-view switch:** 8 buttons jump to Arranger / DAW / Nodes / Mixer / controller views
+- **8×8 RGB pad grid** for note, clip, and grid input
+
+### Ableton Push 2
+
+- **Transport:** Play, Stop, Record
+- **Editing:** Undo, Delete, Add node (Add Device)
+- **Node-select slots:** 8 pads store and recall nodes
+- **DAW track select:** lower row of 8 buttons
+- **Arp note rate:** dedicated rate buttons (1/4 … 1/32t)
+- **Octave:** Octave Up / Down
+- **8×8 RGB pad grid** with velocity and pressure
+
+---
+
+# Mixer
+
+Source: https://synthtropy.com/docs/mixer/
+
+> Per-track faders and pan, with the selected track's processing rack below.
+
+The **Mixer** view (<kbd>4</kbd>) gives you per-track **faders** and **pan**
+controls for balancing your project, with the selected track's processing
+[rack](daw-view/rack-and-effects.md) shown below the strip for quick access.
+
+![The mixer view.](mixer-view.jpeg)
+
+---
+
+# Arranger
+
+Source: https://synthtropy.com/docs/arranger/
+
+> Compose live by launching your existing DAW tracks and scenes (skenes) on the beat.
+
+The **Arranger** view (<kbd>1</kbd>) is for **live composing**. Instead of laying
+everything out on a fixed timeline, you build an arrangement in real time by
+launching your existing [DAW](daw-view/index.md) tracks and **scenes** — we call
+them *skenes* — on the beat, remixing and re-sequencing a set as you perform.
+
+![The arranger view, for creating real-time arrangements from tracks and scenes.](shot-260608-155306.png)
+
+---
+
+# Tools
+
+Source: https://synthtropy.com/docs/tools/
+
+> Handy extras — the audio recorder and the pitch tuner.
+
+Smaller utilities that are handy to have while you work.
+
+- **[Audio Recorder](audio-recorder.md)** — capture the master output or an input to a file.
+- **[Tuner](tuner.md)** — a real-time pitch tuner.
+
+---
+
+# Audio Recorder
+
+Source: https://synthtropy.com/docs/tools/audio-recorder/
+
+> Quickly capture the master output or an input source to an audio file.
+
+The **audio recorder** captures audio to a file without leaving your session —
+handy for grabbing ideas or bouncing a mix. It can record the **master output**
+(the full stereo mix) or an **input** source such as a microphone or line-in, and
+start either from the current position or from the beginning (<kbd>Cmd</kbd> +
+<kbd>R</kbd>).
+
+Recordings are kept in a library where you can name them, and they can be brought
+back in as sampler sources. To record audio onto a track in the timeline instead,
+see [Audio Tracks](../daw-view/audio-tracks.md).
+
+> Brief note for now — this page will expand with the recorder's options.
+
+---
+
+# Tuner
+
+Source: https://synthtropy.com/docs/tools/tuner/
+
+> A real-time pitch tuner showing the detected note and cents deviation.
+
+The **tuner** shows the detected pitch in real time — the note name and how many
+**cents** sharp or flat it is — for tuning an instrument or checking intonation,
+on stage or in the studio.
+
+> Brief note for now — this page will expand with usage details.
+
+---
+
+# Reference
+
+Source: https://synthtropy.com/docs/reference/
+
+> Keyboard shortcuts and plug-in support.
+
+Reference material for power users.
+
+- **[Keyboard Shortcuts](keyboard-shortcuts.md)** — the full list, grouped by context, for Mac and iPad hardware keyboards.
+- **[AUv3 Support](auv3-support.md)** — how Skene hosts Audio Unit (AUv3) instruments and effects.
+
+---
+
+# Keyboard Shortcuts
+
+Source: https://synthtropy.com/docs/reference/keyboard-shortcuts/
+
+> Hardware-keyboard shortcuts grouped by context. Works on Mac and on iPad with a Magic or Bluetooth keyboard.
+
+Skene has full keyboard support. On **Mac** these work out of the box; on
+**iPad** they require a connected hardware keyboard (Magic Keyboard or
+Bluetooth). On both platforms <kbd>Cmd</kbd> is the command/⌘ key.
+
+## Global
+
+| Action | Shortcut |
+| --- | --- |
+| Add node / item | <kbd>A</kbd> |
+| Add controller view | <kbd>+</kbd> |
+| Save | <kbd>Cmd</kbd> + <kbd>S</kbd> |
+| Undo | <kbd>Cmd</kbd> + <kbd>Z</kbd> |
+| Redo | <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> |
+| Copy / Cut / Paste | <kbd>Cmd</kbd> + <kbd>C</kbd> / <kbd>X</kbd> / <kbd>V</kbd> |
+| Delete selection | <kbd>Delete</kbd> |
+| Toggle computer keyboard as MIDI | <kbd>Cmd</kbd> + <kbd>M</kbd> |
+
+## Transport
+
+| Action | Shortcut |
+| --- | --- |
+| Play / pause | <kbd>Space</kbd> |
+| Replay from start | <kbd>Return</kbd> |
+| Record | <kbd>R</kbd> |
+| Record from the beginning | <kbd>Cmd</kbd> + <kbd>R</kbd> |
+| Metronome on / off | <kbd>K</kbd> |
+
+The metronome toggle keeps your per-mode settings: switching it off and back on
+restores the same recording / playback configuration. If both were off, it turns
+on the recording metronome.
+
+## Switching views
+
+| Action | Shortcut |
+| --- | --- |
+| Arranger | <kbd>1</kbd> |
+| Tracks (DAW) | <kbd>2</kbd> |
+| Nodes | <kbd>3</kbd> |
+| Mixer | <kbd>4</kbd> |
+| Controller views | <kbd>5</kbd>, <kbd>6</kbd>, … |
+
+## DAW &amp; piano roll
+
+| Action | Shortcut |
+| --- | --- |
+| Move selection between clips / tracks | <kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd> |
+| Focus the detail / piano-roll view | <kbd>Cmd</kbd> + <kbd>↓</kbd> |
+| Back to the track view | <kbd>Cmd</kbd> + <kbd>↑</kbd> |
+| Move the edit cursor by a beat | <kbd>Shift</kbd> + <kbd>←</kbd> / <kbd>→</kbd> |
+| Transpose selected notes by an octave | <kbd>Shift</kbd> + <kbd>↑</kbd> / <kbd>↓</kbd> |
+| Select all notes | <kbd>Cmd</kbd> + <kbd>A</kbd> |
+| Quantize selected notes | <kbd>Q</kbd> |
+| Zoom in / out | <kbd>Alt</kbd> + <kbd>=</kbd> / <kbd>-</kbd> |
+| Create a new track | <kbd>Shift</kbd> + <kbd>A</kbd> |
+| Toggle presentation mode | <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd> |
+| Exit presentation mode | <kbd>Esc</kbd> |
+
+Hold <kbd>Alt</kbd> (Option) while dragging a note or clip to **duplicate** it.
+
+## Virtual MIDI keyboard
+
+When *computer keyboard as MIDI* mode is on (<kbd>Cmd</kbd> + <kbd>M</kbd>), the
+letter and number keys play notes in a piano layout:
+
+| Action | Shortcut |
+| --- | --- |
+| Play notes | letter / number keys |
+| Octave down / up | <kbd>-</kbd> / <kbd>+</kbd> |
+
+While this mode is active, unmapped keys are ignored so they don't trigger their
+usual shortcuts. See [Virtual Piano](../controllers/virtual-piano.md).
+
+---
+
+# AUv3 Support
+
+Source: https://synthtropy.com/docs/reference/auv3-support/
+
+> Skene hosts Audio Unit (AUv3) instruments and effects as first-class nodes, alongside its built-in devices.
+
+Skene is a full **AUv3 host**. Audio Unit (version 3) plug-ins installed on your
+device — third-party synths, samplers, and effects — load directly into Skene
+and behave like any built-in device.
+
+![A DAW track hosting an AUv3 plug-in alongside Skene's built-in devices (macOS).](daw-with-auv3.jpeg)
+
+## AUv3 instruments
+
+Load any AUv3 **instrument** plug-in as the sound source of a track or as a node
+in the graph. Hosted instruments are patchable alongside Skene's own
+instruments, so you can drive them with the piano roll, controllers, MPE, and
+modulation just like the built-ins.
+
+## AUv3 effects
+
+Insert AUv3 audio **effect** plug-ins anywhere in the signal chain. Mix
+third-party processors freely with Skene's built-in effects (delay, reverb,
+saturator, compressor, filters, and more) in the same [instrument rack](../daw-view/rack-and-effects.md)
+or [node graph](../node-view/index.md).
+
+## Where to add them
+
+AUv3 plug-ins appear in the node / device browser next to the built-in
+components. Add one the same way you add any node — through the **Add** menu
+(<kbd>A</kbd>) — and patch it into your track.
+
+> Skene *hosts* AUv3 plug-ins. It is a standalone app, not itself an AUv3
+> extension loaded inside another host.

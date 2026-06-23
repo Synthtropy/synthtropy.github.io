@@ -1,0 +1,141 @@
+# Skene Documentation
+
+> Skene is one app for the whole show — compose music in the DAW, build live visuals, drive stage lighting and effects over DMX512, and perform it all live from the Arranger.
+
+Reference for Skene — a DAW with an instrument rack, an underlying node graph, GPU visuals, and DMX512 lighting for Mac, iPad, and iPhone. Each link points to the live HTML page; the full Markdown text is at /llms-full.txt.
+
+## Overview
+
+- [Getting Started](https://synthtropy.com/docs/getting-started/): The five main views and how to switch between them.
+- [Mixer](https://synthtropy.com/docs/mixer/): Per-track faders and pan, with the selected track's processing rack below.
+- [Arranger](https://synthtropy.com/docs/arranger/): Compose live by launching your existing DAW tracks and scenes (skenes) on the beat.
+
+## DAW View
+
+- [DAW View](https://synthtropy.com/docs/daw-view/): The main timeline where you build songs from MIDI and audio clips, each track driven by its own instrument rack.
+- [Creating Tracks](https://synthtropy.com/docs/daw-view/creating-tracks/): Add MIDI, audio, and drum tracks from the Create Track dialog.
+- [The Piano Roll](https://synthtropy.com/docs/daw-view/piano-roll/): Draw and arrange MIDI clips on the beat grid.
+- [Clip Editing](https://synthtropy.com/docs/daw-view/clip-editing/): Repeat, resize, and loop clips by dragging their corners.
+- [MIDI Note Editing](https://synthtropy.com/docs/daw-view/midi-note-editing/): Draw, select, move, and quantize notes, and edit velocity across a selection.
+- [Key & Scale](https://synthtropy.com/docs/daw-view/key-and-scale/): Lock playing and editing to a musical key and scale, with in-scale notes highlighted.
+- [Automation Curves](https://synthtropy.com/docs/daw-view/automation-curves/): Automate modwheel, sustain, and any CC over time with editable curves.
+- [Rack & Effects](https://synthtropy.com/docs/daw-view/rack-and-effects/): Build a per-track effect chain by inserting effects between the instrument and the channel volume.
+- [Audio Tracks](https://synthtropy.com/docs/daw-view/audio-tracks/): Record and play back audio, and build an audio processing chain like a vocal channel.
+- [Drum Tracks](https://synthtropy.com/docs/daw-view/drum-tracks/): Pattern-based drum tracks built from presets, with a complexity control for instant variation.
+- [Drum Sampler](https://synthtropy.com/docs/daw-view/drum-tracks/drum-sampler/): Load custom WAV samples into the drum sampler's slots.
+- [Drum Editor](https://synthtropy.com/docs/daw-view/drum-tracks/drum-editor/): Edit drum patterns directly in the drum track editor.
+- [Multi-Track View](https://synthtropy.com/docs/daw-view/multi-track-view/): See every track's clips together by selecting all tracks.
+
+## MPE
+
+- [MPE](https://synthtropy.com/docs/mpe/): Per-note expression — pitch, slide, and pressure for every note independently. A standout feature most iOS DAWs don't offer.
+- [Track Expression Mode](https://synthtropy.com/docs/mpe/track-expression-mode/): Switch a track between Standard and MPE expression in its settings.
+- [Editing MPE Curves](https://synthtropy.com/docs/mpe/editing-mpe-curves/): Draw and edit per-note pitch, timbre, and pressure curves, including vibrato.
+
+## Node View
+
+- [Node View](https://synthtropy.com/docs/node-view/): The visual patching canvas — connect instruments, effects, modulation, and visuals as typed nodes, including feedback loops the rack can't express.
+- [Visuals](https://synthtropy.com/docs/node-view/visuals/): Build GPU visuals in the node graph and modulate them live from music and MIDI.
+- [Video Sampler](https://synthtropy.com/docs/node-view/visuals/video-sampler/): Use the sampler with video as a visual source.
+- [Video Effects](https://synthtropy.com/docs/node-view/visuals/video-effects/): Add video effects through the node view.
+- [DMX Lighting](https://synthtropy.com/docs/node-view/dmx/): Drive stage lighting from the node graph over Art-Net or USB, with configurable fixtures and a DMX channel map.
+- [Art-Net Setup](https://synthtropy.com/docs/node-view/dmx/art-net/): Add an Art-Net device and choose unicast or broadcast delivery.
+- [Fixtures](https://synthtropy.com/docs/node-view/dmx/fixtures/): Configure the fixture that matches your light, or build your own.
+- [Channel Map](https://synthtropy.com/docs/node-view/dmx/channel-map/): Arrange your fixtures across the 512 channels of a DMX universe.
+- [Using DMX Nodes](https://synthtropy.com/docs/node-view/dmx/using-dmx-nodes/): Drive your fixtures' channels from the node graph with the DMX Fixture and Light Bar nodes.
+
+## Components
+
+- [Components](https://synthtropy.com/docs/components/): Reference for every node you can add to the graph, grouped by category.
+- [Audio](https://synthtropy.com/docs/components/audio/): Instruments, effects, mixing, and audio I/O — the sound-making and sound-shaping nodes.
+- [Analog Synthesizer](https://synthtropy.com/docs/components/audio/analog-synthesizer/): Analog polyphonic synth with MPE support and vocoder.
+- [Sampler](https://synthtropy.com/docs/components/audio/sampler/): Plays video/audio files as a live instrument with cue points, MIDI control, and audio output.
+- [Drum Sampler](https://synthtropy.com/docs/components/audio/drum-sampler/): Sample-based drum playback that takes MIDI input.
+- [Drum Synthesizer](https://synthtropy.com/docs/components/audio/drum-synthesizer/): Analog drum synth in the style of the classic 70s drum machines.
+- [Guitar Amp](https://synthtropy.com/docs/components/audio/guitar-amp/): Neural Amp Modeler — load a .nam guitar/bass amp profile and an optional .wav cabinet IR. Includes a noise gate and 3-band tone stack.
+- [Audio Input](https://synthtropy.com/docs/components/audio/audio-input/): Captures audio from an input device such as a microphone or line-in. The audio can be connected to other nodes for effects processing.
+- [Audio Mixer](https://synthtropy.com/docs/components/audio/audio-mixer/): Combines multiple audio sources into a single output.
+- [Main Bus](https://synthtropy.com/docs/components/audio/main-bus/): Master output bus. When present, all audio routes into the Main Bus; insert post-bus effects on its output for program-wide processing.
+- [Parametric EQ](https://synthtropy.com/docs/components/audio/parametric-eq/): 6-band parametric equalizer with low/high pass, shelf, and bell filters.
+- [Reverb](https://synthtropy.com/docs/components/audio/reverb/): Classic Freeverb stereo reverb with room size, damping, wet/dry level, stereo width, and freeze mode.
+- [Delay](https://synthtropy.com/docs/components/audio/delay/): Stereo digital delay with adjustable time (1–2000 ms), feedback, and wet/dry mix.
+- [Chorus](https://synthtropy.com/docs/components/audio/chorus/): Juno-style stereo BBD chorus with two LFO modes, depth, and filter brightness.
+- [Saturator](https://synthtropy.com/docs/components/audio/saturator/): Harmonic saturator with an odd (tanh) and even (asymmetric) waveshaping blend, wet mix, and output gain trim.
+- [Compressor](https://synthtropy.com/docs/components/audio/compressor/): Feed-forward RMS compressor with soft knee, attack/release ballistics, input/output gain, and parallel mix.
+- [String Resonator](https://synthtropy.com/docs/components/audio/string-resonator/): String resonator effect for creating sympathetic resonances.
+- [Freeze & Stutter](https://synthtropy.com/docs/components/audio/freeze-and-stutter/): On trigger, freezes the last N ms of audio and loops it. Modulating the length while held produces beat-repeat and glitch effects.
+- [MIDI](https://synthtropy.com/docs/components/midi/): MIDI generators and processors that create or transform note and controller data.
+- [Arpeggiator](https://synthtropy.com/docs/components/midi/arpeggiator/): Creates arpeggio patterns from a chord input.
+- [MIDI I/O](https://synthtropy.com/docs/components/midi/midi-io/): MIDI input / output. Send or receive MIDI messages to and from an external MIDI device. The same component can act as both input and output.
+- [MIDI Merge](https://synthtropy.com/docs/components/midi/midi-merge/): Merges two MIDI inputs with an adjustable mix control from -1.0 to 1.0.
+- [MIDI Transpose](https://synthtropy.com/docs/components/midi/midi-transpose/): Transposes MIDI notes by semitones and octaves.
+- [MIDI Learn](https://synthtropy.com/docs/components/midi/midi-learn/): Learns and converts MIDI signals to control values.
+- [HID Input](https://synthtropy.com/docs/components/midi/hid-input/): Connect to HID devices such as game controllers or Guitar Hero controllers. (macOS)
+- [Tool](https://synthtropy.com/docs/components/tool/): Modulation sources, logic, sensors, and utilities for wiring control signals through the graph.
+- [Signal Generator](https://synthtropy.com/docs/components/tool/signal-generator/): Generates various waveforms (sine, square, and so on) as control signals.
+- [ADSR Envelope](https://synthtropy.com/docs/components/tool/adsr-envelope/): Applies envelope modulation (Attack, Decay, Sustain, Release) to input signals.
+- [Selector](https://synthtropy.com/docs/components/tool/selector/): Routes one of several inputs to a single output. The data type is auto-detected from the first connection. Cycle through inputs or pick one with per-input triggers; inputs grow as you connect them.
+- [Shift Register](https://synthtropy.com/docs/components/tool/shift-register/): Shifts data through N outputs on each trigger. The data type is auto-detected from the input.
+- [Project Control](https://synthtropy.com/docs/components/tool/project-control/): Controls project parameters such as tempo and playback state.
+- [HSL to RGB](https://synthtropy.com/docs/components/tool/hsl-to-rgb/): Converts hue, saturation, luma, and alpha into an RGBA color.
+- [Logic & Math Operators](https://synthtropy.com/docs/components/tool/logic-and-math/): A family of small logic and math nodes that combine or transform control signals.
+- [Accelerometer](https://synthtropy.com/docs/components/tool/accelerometer/): Reads device accelerometer data and outputs normalized values. (iOS)
+- [Flashlight](https://synthtropy.com/docs/components/tool/flashlight/): Controls the iPhone torch from float intensity and enabled inputs. (iOS)
+- [LiDAR Distance](https://synthtropy.com/docs/components/tool/lidar-distance/): Measures distance using the front TrueDepth sensor (0–1 m) or the back LiDAR sensor (0–5 m). Toggle the sensor via the context menu. (iOS)
+- [Visual](https://synthtropy.com/docs/components/visual/): GPU texture, particle, and shader nodes for building visuals — many are experimental.
+- [Particle Emitter](https://synthtropy.com/docs/components/visual/particle-emitter/): Emits particle spawn buffers for the node-based particle pipeline.
+- [Particle Emitter from Image](https://synthtropy.com/docs/components/visual/particle-emitter-from-image/): Emits particles based on an image and an optional SDF mask.
+- [Particle System](https://synthtropy.com/docs/components/visual/particle-system/): Owns particle buffers and manages capacity.
+- [Particle Physics](https://synthtropy.com/docs/components/visual/particle-physics/): Applies gravity, damping, and sink forces to particle motion.
+- [Particle Transform](https://synthtropy.com/docs/components/visual/particle-transform/): Applies position/size/velocity transforms to particle buffers with optional group filtering.
+- [Particle Sink](https://synthtropy.com/docs/components/visual/particle-sink/): Defines a gravity sink or pusher for particle physics.
+- [Point Cloud From Model](https://synthtropy.com/docs/components/visual/point-cloud-from-model/): Generates a static point cloud from a mesh.
+- [SDF Composite (Particles)](https://synthtropy.com/docs/components/visual/sdf-composite-particles/): Composites particle buffers into an SDF texture.
+- [Particle Renderer](https://synthtropy.com/docs/components/visual/particle-renderer/): Consumes particle buffers for rendering.
+- [TrueDepth Camera](https://synthtropy.com/docs/components/visual/truedepth-camera/): Captures the TrueDepth camera depth map as a 32-bit float texture. (iOS)
+- [Camera Stream](https://synthtropy.com/docs/components/visual/camera-stream/): Captures a live camera feed and outputs it as a GPU texture.
+- [Mask Image](https://synthtropy.com/docs/components/visual/mask-image/): Applies a mask texture to an input image and outputs RGBA.
+- [Person Segmentation](https://synthtropy.com/docs/components/visual/person-segmentation/): Uses Apple Vision ML to separate a person from the background and output a grayscale mask texture.
+- [Noise Generator](https://synthtropy.com/docs/components/visual/noise-generator/): Generates procedural noise textures (single channel).
+- [Video Mixer](https://synthtropy.com/docs/components/visual/video-mixer/): Blends two textures with selectable modes.
+- [View Preview](https://synthtropy.com/docs/components/visual/view-preview/): Renders a controller view into a GPU texture output.
+- [DAW Post Process](https://synthtropy.com/docs/components/visual/daw-post-process/): Routes the renderer background and post-process textures through the node graph.
+- [PIP Overlay](https://synthtropy.com/docs/components/visual/pip-overlay/): Displays an incoming texture as a picture-in-picture overlay in any screen corner.
+- [Image Loader](https://synthtropy.com/docs/components/visual/image-loader/): Loads an image into a GPU texture buffer.
+- [SDF Processor](https://synthtropy.com/docs/components/visual/sdf-processor/): Processes an input texture into SDF-like output.
+- [SDF Render (Texture)](https://synthtropy.com/docs/components/visual/sdf-render-texture/): Renders an SDF texture into a new RGBA output texture.
+- [SDF Gravity Sink](https://synthtropy.com/docs/components/visual/sdf-gravity-sink/): Applies SDF gravity forces to GPU particles.
+- [Image Distortion](https://synthtropy.com/docs/components/visual/image-distortion/): Applies wave and ripple distortion to a texture.
+- [MPS Blur](https://synthtropy.com/docs/components/visual/mps-blur/): Applies Gaussian blur to a texture using Metal Performance Shaders.
+- [Luma Threshold](https://synthtropy.com/docs/components/visual/luma-threshold/): Extracts bright areas based on a luminance threshold. Use with MPS Blur for bloom effects.
+- [Texture Feedback](https://synthtropy.com/docs/components/visual/texture-feedback/): Accumulates previous frames with decay to create light trails.
+- [Scanlines](https://synthtropy.com/docs/components/visual/scanlines/): CRT-style scanlines with subtle noise.
+- [Pixelate](https://synthtropy.com/docs/components/visual/pixelate/): Applies controllable pixelation to a texture.
+- [Chromatic Aberration](https://synthtropy.com/docs/components/visual/chromatic-aberration/): Separates color channels for RGB or CMYK chromatic fringing.
+- [Color Manipulation](https://synthtropy.com/docs/components/visual/color-manipulation/): Adjusts hue, brightness, saturation, and contrast with an optional single-hue colorize mode.
+- [Texture Generator](https://synthtropy.com/docs/components/visual/texture-generator/): Generates a color-gradient texture from manual size controls or an input texture's dimensions.
+- [Text Render](https://synthtropy.com/docs/components/visual/text-render/): Renders Unicode text into a 1024×512 texture using the system font.
+- [Dither Render](https://synthtropy.com/docs/components/visual/dither-render/): Applies Bayer ordered dithering to a texture for stylized output.
+- [DMX](https://synthtropy.com/docs/components/dmx/): Stage-lighting control over DMX512 / Art-Net.
+- [DMX Fixture](https://synthtropy.com/docs/components/dmx/dmx-fixture/): Sends DMX512 / Art-Net lighting control from float inputs.
+- [Light Bar](https://synthtropy.com/docs/components/dmx/light-bar/): Shift-register LED bar for DMX lightbars. Shifts an RGB color through N output slots with configurable blend modes.
+
+## Controllers
+
+- [Controllers](https://synthtropy.com/docs/controllers/): The surfaces you play Skene with — on-screen piano, pads, and chord strips, plus hardware MIDI controllers.
+- [Virtual Piano](https://synthtropy.com/docs/controllers/virtual-piano/): The on-screen piano, and using the computer keyboard as a MIDI input.
+- [Pads](https://synthtropy.com/docs/controllers/pads/): Expressive pads with MPE pitch bend.
+- [Chord Pads](https://synthtropy.com/docs/controllers/chord-pads/): One-touch chords with a built-in arpeggiator.
+- [Hardware Controllers](https://synthtropy.com/docs/controllers/hardware-controllers/): Physical MIDI keyboards and pad grids — and the ones with dedicated transport, LED, and selection integration.
+
+## Tools
+
+- [Tools](https://synthtropy.com/docs/tools/): Handy extras — the audio recorder and the pitch tuner.
+- [Audio Recorder](https://synthtropy.com/docs/tools/audio-recorder/): Quickly capture the master output or an input source to an audio file.
+- [Tuner](https://synthtropy.com/docs/tools/tuner/): A real-time pitch tuner showing the detected note and cents deviation.
+
+## Reference
+
+- [Reference](https://synthtropy.com/docs/reference/): Keyboard shortcuts and plug-in support.
+- [Keyboard Shortcuts](https://synthtropy.com/docs/reference/keyboard-shortcuts/): Hardware-keyboard shortcuts grouped by context. Works on Mac and on iPad with a Magic or Bluetooth keyboard.
+- [AUv3 Support](https://synthtropy.com/docs/reference/auv3-support/): Skene hosts Audio Unit (AUv3) instruments and effects as first-class nodes, alongside its built-in devices.

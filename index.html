@@ -31,7 +31,7 @@
                 <div class="container">
                     <img src="img/skene-logo.png" alt="Skene by Synthtropy" class="hero__logo">
                     <p class="hero__tagline">
-                        One app for the whole show. Compose music, design sound, build reactive visuals, and run the lights &mdash; all in a single node-based workstation for Mac, iPad, and iPhone.
+                        One app for the whole show. A full DAW to compose music, design sound, build reactive visuals, and run the lights &mdash; all on Mac, iPad, and iPhone.
                     </p>
                     <!-- <div class="hero__badge">
                         <span class="hero__badge-dot"></span>
@@ -46,18 +46,25 @@
             <!-- Overview -->
             <div class="section section--bordered">
                 <div class="container">
-                    <div class="overview">
-                        <div class="overview__main">
-                            <div class="section__label">What is Skene</div>
-                            <h2 class="section__title">A DAW, a modular studio, and a stage rig in one</h2>
-                            <p class="section__subtitle">
-                                One app for the whole show. Compose music, design sound, build reactive visuals, and run the lights &mdash; all in a single node-based workstation for Mac, iPad, and iPhone.
-                            </p>
-                        </div>
-                        <div class="overview__media">
-                            <img src="img/daw-view-mac.jpeg" alt="Skene running on Mac &mdash; DAW tracks with the analog synth and effects rack" class="overview__image zoomable">
-                        </div>
+                    <div class="section__label">What is Skene</div>
+                    <h2 class="section__title">A DAW with hidden depth</h2>
+                    <p class="section__subtitle section__subtitle--wide">
+                        Skene opens to a familiar DAW &mdash; tracks, clips, a piano roll, and a mixer &mdash; with every instrument and effect living in a per-track rack. Anything you can see, you can automate and modulate: every knob, fader, and parameter is a live, performable control.
+                    </p>
+
+                    <div class="duo">
+                        <figure class="duo__item">
+                            <img src="img/daw-view-mac.jpeg" alt="Skene running on Mac &mdash; DAW tracks with the analog synth and effects rack" class="duo__img zoomable">
+                            <figcaption class="duo__caption">The DAW &mdash; tracks, clips, and a per-track instrument rack</figcaption>
+                        </figure>
+                        <figure class="duo__item">
+                            <img src="img/node-connections-modulation.jpeg" alt="Skene node graph &mdash; instruments, effects, and modulation patched as connected nodes" class="duo__img zoomable">
+                            <figcaption class="duo__caption">Underneath &mdash; the same project as a live node graph</figcaption>
+                        </figure>
                     </div>
+                    <p class="duo__note">
+                        What you see is a DAW. Open up any device and the same project becomes a node graph, where every parameter is a port you can patch modulation, audio, and control into &mdash; the hidden depth behind the timeline.
+                    </p>
                 </div>
             </div>
 
@@ -124,75 +131,93 @@
                 <div class="container">
                     <div class="section__label">Features</div>
                     <h2 class="section__title">Built for the stage and the studio</h2>
-                    <p class="section__subtitle">Every tool works together in real-time, whether you&rsquo;re composing or performing live.</p>
+                    <p class="section__subtitle">A complete DAW on the surface, with an experimental layer of nodes, visuals, and lighting running underneath &mdash; every tool working together in real-time.</p>
 
-                    <div class="feature-grid">
+                    <div class="feature-split">
 
-                        <div class="feature-card">
-                            <div class="feature-card__title">Node Graph at the Core</div>
-                            <div class="feature-card__desc">Patch instruments, effects, modulation, visuals, and even lighting as connected nodes. Every parameter is a typed port you can route anything into &mdash; LFOs, envelopes, audio levels &mdash; including feedback loops a linear rack can&rsquo;t express.</div>
-                            <span class="feature-card__tag">Node Graph</span>
+                        <!-- Basic -->
+                        <div class="feature-col feature-col--basic">
+                            <div class="feature-col__head">
+                                <div class="feature-col__kicker">Basic</div>
+                                <div class="feature-col__title">The DAW essentials</div>
+                                <div class="feature-col__sub">Everything you expect from a modern DAW.</div>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-item__title">MIDI Tracks &amp; Piano Roll</div>
+                                <div class="feature-item__desc">Full MIDI track workflow with a clip-based arranger and piano roll editor. MPE support adds per-note pitch bend, pressure, and Y-axis slide &mdash; draw curves directly in the piano roll to shape expression over time.</div>
+                                <img src="img/MPE-note-edit.jpeg" alt="Editing per-note MPE expression curves in the piano roll" class="feature-item__thumb zoomable">
+                                <span class="feature-tag">MPE</span>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-item__title">Audio Tracks</div>
+                                <div class="feature-item__desc">Multi-track audio recording and playback with a clip-based arranger. Process tracks with the full built-in and AUv3 effects library, and set clips to loop or play through once.</div>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-item__title">AUv3 Plugin Hosting</div>
+                                <div class="feature-item__desc">Load any AUv3 instrument or effect plugin directly into a track. Third-party synths, samplers, and processors sit right alongside Skene&rsquo;s built-in devices.</div>
+                                <span class="feature-tag">AUv3</span>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-item__title">Built-in Instruments</div>
+                                <div class="feature-item__desc">Analog Synthesizer &mdash; 3 oscillator polyphonic synth with MPE support, vocoder, and unison. Analog Drum Synthesizer &mdash; classic 70s analog drum machine with per-pad synthesis. Drum Sampler.</div>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-item__title">Built-in Effects</div>
+                                <div class="feature-item__desc">Freeverb reverb, stereo delay, saturator, compressor, Warm waveshaper, Juno-style chorus, phaser, Neural Amp Modeler for guitar &amp; bass, and a full filter library: ladder, resonant, formant, and Butterworth high/low pass.</div>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-item__title">MIDI Effects</div>
+                                <div class="feature-item__desc">Per-clip MIDI effect chain with arpeggiator, groove, quantize, and velocity randomizer. Effects animate live in the piano roll as you play, so you can see the pattern as it unfolds.</div>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-item__title">Tuner &amp; Recorder</div>
+                                <div class="feature-item__desc">Real-time pitch tuner showing detected note and cents deviation. Quick audio recorder for capturing ideas instantly, without stopping your session or leaving the current view.</div>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-item__title">Cross-Device &amp; iCloud Sync</div>
+                                <div class="feature-item__desc">One project, every device. Native on Mac, iPad, and iPhone, with iCloud sync so you can start a session on one device and pick it up on another exactly where you left off.</div>
+                            </div>
                         </div>
 
-                        <div class="feature-card">
-                            <div class="feature-card__title">MIDI Tracks &amp; Piano Roll</div>
-                            <div class="feature-card__desc">Full MIDI track workflow with a clip-based arranger and piano roll editor. MPE support adds per-note pitch bend, pressure, and Y-axis slide &mdash; draw curves directly in the piano roll to shape expression over time.</div>
-                            <img src="img/MPE-note-edit.jpeg" alt="Editing per-note MPE expression curves in the piano roll" class="feature-card__thumb zoomable">
-                            <span class="feature-card__tag">MPE</span>
-                        </div>
+                        <!-- Experimental -->
+                        <div class="feature-col feature-col--experimental">
+                            <div class="feature-col__head">
+                                <div class="feature-col__kicker">Experimental</div>
+                                <div class="feature-col__title">Beyond the timeline</div>
+                                <div class="feature-col__sub">The node layer, visuals, and lighting that set Skene apart.</div>
+                            </div>
 
-                        <div class="feature-card">
-                            <div class="feature-card__title">Audio Tracks</div>
-                            <div class="feature-card__desc">Multi-track audio recording and playback with a clip-based arranger. Process tracks with the full built-in and AUv3 effects library, and set clips to loop or play through once.</div>
-                        </div>
+                            <div class="feature-item">
+                                <div class="feature-item__title">Node Graph at the Core</div>
+                                <div class="feature-item__desc">Patch instruments, effects, modulation, visuals, and even lighting as connected nodes. Every parameter is a typed port you can route anything into &mdash; LFOs, envelopes, audio levels &mdash; including feedback loops a linear rack can&rsquo;t express.</div>
+                                <span class="feature-tag">Node Graph</span>
+                            </div>
 
-                        <div class="feature-card">
-                            <div class="feature-card__title">Built-in Instruments</div>
-                            <div class="feature-card__desc">Analog Synthesizer &mdash; 3 oscillator polyphonic synth with MPE support, vocoder, and unison. Analog Drum Synthesizer &mdash; classic 70s analog drum machine with per-pad synthesis. Drum Sampler and multi-sample Sampler with MIDI control and cue points.</div>
-                        </div>
+                            <div class="feature-item">
+                                <div class="feature-item__title">Live Performance &amp; Scenes</div>
+                                <div class="feature-item__desc">Launch clips and whole scenes on the beat from the Arranger and remix a set as you play. Loop sections live, toggle lights and effects, and add mutators on the fly &mdash; all mappable to your hardware controllers via MIDI Learn for hands-on performance.</div>
+                                <span class="feature-tag">Live</span>
+                            </div>
 
-                        <div class="feature-card">
-                            <div class="feature-card__title">Built-in Effects</div>
-                            <div class="feature-card__desc">Freeverb reverb, stereo delay, saturator, compressor, Warm waveshaper, Juno-style chorus, phaser, Neural Amp Modeler for guitar &amp; bass, and a full filter library: ladder, resonant, formant, and Butterworth high/low pass.</div>
-                        </div>
+                            <div class="feature-item">
+                                <div class="feature-item__title">GPU Visuals</div>
+                                <div class="feature-item__desc">Metal-powered visuals that live in the same graph as your sound. Feed audio and MIDI into shaders, particle systems, and feedback effects for graphics that react to the music in real time.</div>
+                                <span class="feature-tag">Visuals</span>
+                            </div>
 
-                        <div class="feature-card">
-                            <div class="feature-card__title">AUv3 Plugin Hosting</div>
-                            <div class="feature-card__desc">Load any AUv3 instrument or effect plugin directly into the node graph. Third-party synths, samplers, and processors become first-class nodes, patchable alongside Skene&rsquo;s built-in devices.</div>
-                            <span class="feature-card__tag">AUv3</span>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-card__title">MIDI Effects</div>
-                            <div class="feature-card__desc">Per-clip MIDI effect chain with arpeggiator, groove, quantize, and velocity randomizer. Effects animate live in the piano roll as you play, so you can see the pattern as it unfolds.</div>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-card__title">Live Performance &amp; Scenes</div>
-                            <div class="feature-card__desc">Launch clips and whole scenes on the beat from the Arranger and remix a set as you play. Loop sections live, toggle lights and effects, and add mutators on the fly &mdash; all mappable to your hardware controllers via MIDI Learn for hands-on performance.</div>
-                            <span class="feature-card__tag">Live</span>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-card__title">GPU Visuals</div>
-                            <div class="feature-card__desc">Metal-powered visuals that live in the same graph as your sound. Feed audio and MIDI into shaders, particle systems, and feedback effects for graphics that react to the music in real time.</div>
-                            <span class="feature-card__tag">Visuals</span>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-card__title">DMX512 Lighting</div>
-                            <div class="feature-card__desc">Drive stage lighting and DMX fixtures &mdash; LED bars, moving heads, haze &mdash; over Art-Net or USB. A light&rsquo;s parameters become node ports, so the same signals that shape your sound can shape the room.</div>
-                            <span class="feature-card__tag">DMX</span>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-card__title">Tuner &amp; Recorder</div>
-                            <div class="feature-card__desc">Real-time pitch tuner showing detected note and cents deviation. Quick audio recorder for capturing ideas instantly, without stopping your session or leaving the current view.</div>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-card__title">Cross-Device &amp; iCloud Sync</div>
-                            <div class="feature-card__desc">One project, every device. Native on Mac, iPad, and iPhone, with iCloud sync so you can start a session on one device and pick it up on another exactly where you left off.</div>
+                            <div class="feature-item">
+                                <div class="feature-item__title">DMX512 Lighting</div>
+                                <div class="feature-item__desc">Drive stage lighting and DMX fixtures &mdash; LED bars, moving heads, haze &mdash; over Art-Net or USB. A light&rsquo;s parameters become node ports, so the same signals that shape your sound can shape the room.</div>
+                                <span class="feature-tag">DMX</span>
+                            </div>
                         </div>
 
                     </div>
